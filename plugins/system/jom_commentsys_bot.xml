@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugins" group="system">
+	<name>Jom Comment Sys</name>
+	<author>Azrul</author>
+	<creationDate>11.14.2006</creationDate>
+	<copyright>Copyright 2006 by Azrul. All rights reserved!</copyright>
+	<license>Copyrighted </license>
+	<authorEmail>azrul@pocketcraft.com</authorEmail>
+	<authorUrl>http://www.azrul.com</authorUrl>
+	<version>2.0</version>
+	<description>Ajax Comment System Hack</description>
+	<files>
+		<filename mambot="jom_commentsys_bot">jom_commentsys_bot.php</filename>
+	</files>
+	<queries>
+		<query>
+			UPDATE `#__mambots`
+			set published=1 WHERE
+			element=`jom_commentsys_bot`;
+		</query>
+	</queries>
+	<params/>
+</install>

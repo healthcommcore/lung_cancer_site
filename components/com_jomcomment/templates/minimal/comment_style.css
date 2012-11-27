@@ -1,0 +1,232 @@
+/* CSS Document */
+
+div.commentBlogView{
+	display:block;
+	text-align: right;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-top: 4px;
+    margin-bottom: 4px;
+	clear:both;
+}
+
+div.commentTools{
+	border-bottom:1px solid #BCBCBC;
+	height:18px;
+}
+
+div.jctools, div.show-comment, div.show-linkmore, div.show-hit, div.show-report, div.show-voteup, div.show-votedown {
+	display:inline;
+    float:right;
+    height:18px;
+    text-indent: 24px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-repeat:no-repeat;
+	background-position: 0 50%;
+	background-image:url(images/comments.gif);
+}
+
+div.show-comment{
+	background-image:url(images/comments.gif);
+}
+div.show-linkmore {
+	background-image:url(images/page_go.gif);
+}
+div.show-hit{
+	background-image:url(images/chart_bar.gif);
+}
+
+div.show-report{
+	background-image:url(images/comments_alert.gif);
+	height:14px;
+	cursor:pointer;
+}
+div.show-voteup{
+	background-image:url(images/comments_voteup.gif);
+	height:14px;
+	cursor:pointer;
+}
+div.show-votedown{
+	background-image:url(images/comments_votedown.gif);
+	height:14px;
+	cursor:pointer;
+}
+
+div.jcfav
+{
+	background-image:url(images/star.png);
+}
+
+div.jcshare
+{
+	background-image:url(images/share.png);
+}
+
+div.jcemail
+{
+	background-image:url(images/email.png);
+}
+
+div.jcpreview
+{
+	background-image:url(images/preview.gif);
+}
+
+div.toggleComment
+{
+	font-size: 12px;
+}
+
+.comments , .jomentry1, .jomentry2{
+	padding-left:16px;
+}
+
+.jomentry1, .jomentry2, #jc_commentFormDiv{
+	border-bottom: 1px solid #C6D6E6;
+	padding: 15px;
+	position:relative;
+	font-size: 12px;
+}
+
+.jomentry1 blockquote, .jomentry2 blockquote {
+	background: transparent url(images/bg_blockquote.gif) no-repeat 0 5px;
+  	color: #747474; 
+  	padding-left: 30px;
+}
+
+.jomentry2 {
+color:inherit;
+background-color:#F1F1FE;
+}
+
+.jomauthor {
+		color:inherit;
+    background-color: #F5F5C1;
+    border-bottom: 1px solid #FFDE00;
+    background-image:none;
+}
+
+#postComment{
+	color:inherit;
+	background:#ddd;
+	padding:15px;
+}
+
+#postComment label{
+	width:120px;
+	display:block;
+	float:left;
+	clear:both;
+	margin:5px 0 0 0;
+	text-transform: lowercase;
+}
+
+#postComment input, #postComment textarea{
+	margin:5px 0 0 0;
+	width:95%;
+}
+
+#postComment textarea {
+	height:160px;
+}
+
+#postComment input, #postComment textarea {
+	padding:2px;
+	border-width:1px;
+}
+
+#postComment input:focus, #postComment textarea:focus, .passwordPost label input:focus {
+	color:inherit;
+	background:#ffc;
+}
+#postComment .button {
+	padding:5px;
+	clear:both;
+	width:140px;
+	margin:5px 0 0 0;
+	background:#024;
+	border-color:#357 #002 #002 #357;
+	color:#fff;
+	vertical-align: middle;
+}
+
+#comments {
+	background:#eef;
+	color:inherit;
+}
+.avatarImg{
+	float: right;
+	padding: 2px;
+}
+.avatarImg img{
+	border:1px solid #ddd
+}
+
+/* Trackbacks recently added*/
+#trackback_link, .feed_link
+{
+	height:16px;
+	vertical-align:middle;
+	text-align:left;
+	cursor:pointer;
+	font-size:90%;
+}
+
+#trackback_link a, .feed_link a
+{
+	border-bottom:dashed 1px #CACACA;
+}
+
+#trackback_link img, .feed_link img
+{
+	vertical-align:middle;
+	padding-right:2px;
+	padding-left:2px;
+}
+
+
+#comment_title
+{
+	margin-top:20px;
+	margin-bottom:8px;
+}
+
+
+#written_comments_title
+{
+	margin-top:14px;
+}
+
+.comment-text{
+	font-size:100%;
+}
+
+.comment_action{
+	background-color:#EEEEEE;
+	border-color:#CCCCCC rgb(153, 153, 153) rgb(153, 153, 153) rgb(204, 204, 204);
+	border-style:solid;
+	border-width:1px;
+	color:#333333;
+	display:-moz-inline-box;
+	font-family:Tahoma,Arial,Helvetica;
+	font-size:100%;
+	margin:1px;
+/*	padding:2px; */
+	vertical-align:middle;
+	white-space:nowrap;
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
+#jc_commentForm label.subscribe, #jc_commentForm label.agree {
+font-style:normal;
+font-weight:normal;
+width:90%;
+}
+
+#jc_commentForm label.subscribe input, #jc_commentForm label.agree input{
+width:20px;
+float:left;
+}

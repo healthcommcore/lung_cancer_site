@@ -1,0 +1,255 @@
+div.commentBlogView{
+	display:block;
+	text-align: right;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-top: 4px;
+  margin-bottom: 4px;
+	clear:both;
+}
+
+div.commentTools{
+	border-bottom:1px solid #BCBCBC;
+	height:18px;
+}
+
+div.jctools, div.show-comment, div.show-linkmore, div.show-hit, div.show-feed, div.show-report, div.show-voteup, div.show-votedown {
+		display:inline;
+    float:right;
+    height:18px;
+    padding: 1px;
+    text-indent: 24px;
+    margin-left: 4px;
+    margin-right: 4px;
+    background-repeat:no-repeat;
+	background-position: 0 50%;
+	background-image:url(images/comments.gif);
+}
+
+div.show-comment{
+	background-image:url(images/comments.gif);
+}
+
+
+div.show-linkmore {
+	background-image:url(images/page_go.gif);
+}
+
+div.show-hit{
+	background-image:url(images/chart_bar.gif);
+}
+
+div.show-feed{
+	width:18px;
+	text-indent: -24px;
+	background-image:url(images/feed.gif);
+	background-position: right center;
+}
+
+div.show-report{
+	background-image:url(images/comments_alert.gif);
+	height:14px;
+	cursor:pointer;
+}
+div.show-voteup{
+	background-image:url(images/comments_voteup.gif);
+	height:14px;
+	cursor:pointer;
+}
+div.show-votedown{
+	background-image:url(images/comments_votedown.gif);
+	height:14px;
+	cursor:pointer;
+}
+
+div.jcfav
+{
+	background-image:url(images/star.png);
+}
+
+div.jcshare
+{
+	background-image:url(images/share.png);
+}
+
+div.jcemail
+{
+	background-image:url(images/email.png);
+}
+
+div.jcpreview
+{
+	background-image:url(images/preview.gif);
+}
+
+.jomentry1,.jomentry2
+{
+	border: 1px dotted #999;
+	padding: 8px 4px;
+	background-repeat:repeat-x;
+	background-position:top;
+	margin:10px 15px;
+}
+
+
+.jomentry1 blockquote, .jomentry2 blockquote {
+	margin: 10px;
+	padding-left: 5px;
+	border-left: 5px solid #ddd;
+}
+
+
+.jomentry1 {
+background-color: #f2f2f2;
+background-image:url(images/topshade1.gif);
+
+}
+.jomentry2 {
+background-color: #fffff2;
+background-image:url(images/topshade2.gif);
+}
+
+.jomauthor {	
+    background-color: #F5F5C1;
+    background-image:none;
+} 
+
+.jomentry1,
+.jomentry2,
+.jomauthor
+{
+	color:inherit;
+	position:relative;
+}
+
+
+.avatarImg{
+	float: right;
+	padding: 2px;
+}
+
+.avatarImg img{
+	border:1px solid #ddd
+}
+
+
+div.bCommentTitle {
+	margin: 1ex 0;
+	font-weight: bold;
+	
+}
+
+
+div.bCommentText
+{
+	margin-top: 10px;
+	margin-bottom: 1px;
+}
+
+
+div.bCommentSmallPrint {
+	clear: both;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	margin: 1ex 0;
+}
+
+#jc_name, #jc_website, #jc_email, #jc_title, #jc_comment, #jc_password
+{
+	color:inherit;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	width: 98%;
+	padding: 4px;
+	margin: 0ex;
+	display: block;
+}
+
+#jc_name, #jc_website, #jc_email, #jc_password
+{
+	width: 50%;
+}
+
+
+#jc_name:focus, #jc_website:focus, #jc_email:focus, #jc_title:focus, #jc_comment:focus, #jc_password:focus
+{
+	border: 1px solid #D4D481;
+}
+
+#jc_commentsDiv blockquote {
+  color: #747474; 
+  padding-left: 30px;
+  background-color:inherit;
+}
+
+#jc_commentForm{
+    padding-top: 2px;
+    padding-bottom: 6px;
+}
+
+
+#jc_commentForm label{
+    font-weight:bold;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    display: block;
+}
+
+#jc_commentForm button, #jc_captchaImg
+{
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+/* Trackbacks */
+#trackback_link, .feed_link
+{
+	height:16px;
+	vertical-align:middle;
+	text-align:left;
+	cursor:pointer;
+	font-size:90%;
+}
+
+#trackback_link a, .feed_link a
+{
+	border-bottom:dashed 1px #CACACA;
+}
+
+#trackback_link img, .feed_link img
+{
+	vertical-align:middle;
+	padding-right:2px;
+	padding-left:2px;
+}
+
+
+#comment_title
+{
+	margin-top:20px;
+	margin-bottom:8px;
+}
+
+
+#written_comments_title
+{
+	margin-top:14px;
+}
+
+.comment_action{
+	background-color:#EEEEEE;
+	border-color:#CCCCCC rgb(153, 153, 153) rgb(153, 153, 153) rgb(204, 204, 204);
+	border-style:solid;
+	border-width:1px;
+	color:#333333;
+	display:-moz-inline-box;
+	font-family:Tahoma,Arial,Helvetica;
+	font-size:100%;
+	margin:1px;
+/*	padding:2px; */
+	vertical-align:middle;
+	white-space:nowrap;
+	position:absolute;
+	right:0px;
+	top:0px;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0">
+	<name>Recipe</name>
+	<author>Therese Lung (HCC)</author>
+	<creationDate>April 2008</creationDate>
+	<copyright>Copyright (C) 2008 DFCI.</copyright>
+	<license></license>
+	<authorEmail>therese_lung@dfci.harvard.edu</authorEmail>
+	<authorUrl>www.hccstudio.org</authorUrl>
+	<version>1.0</version>
+	<description>A component for creating and managing Recipes</description>
+<installfile>install.recipe.php</installfile>
+<uninstallfile>uninstall.recipe.php</uninstallfile>
+<install>
+	<sql>
+	<file driver="mysql" charset="utf8">install.mysql.sql</file>
+	</sql>
+</install>
+<uninstall>
+	<sql>
+	<file driver="mysql" charset="utf8">uninstall.mysql.sql</file>
+	</sql>
+</uninstall>
+<files>
+	<filename>controller.php</filename>
+	<filename>recipe.php</filename>
+	<filename>models/category.php</filename>
+	<filename>models/featured.php</filename>
+	<filename>models/recipe.php</filename>
+	<filename>views/category/metadata.xml</filename>
+	<filename>views/category/view.html.php</filename>
+	<filename>views/category/tmpl/default.php</filename>
+	<filename>views/featured/metadata.xml</filename>
+	<filename>views/featured/view.html.php</filename>
+	<filename>views/featured/tmpl/default.php</filename>
+	<filename>views/recipe/metadata.xml</filename>
+	<filename>views/recipe/view.html.php</filename>
+	<filename>views/recipe/tmpl/default.php</filename>	
+</files>
+<administration>
+	<menu>Recipes</menu>
+	<submenu>
+		<menu link="option=com_recipe">Manage Recipes</menu>
+		<menu task="diets">Manage Diets</menu>
+		<menu task="projects">Manage Projects</menu>
+	</submenu>
+	<files folder="admin">
+	<filename>install.mysql.sql</filename>
+	<filename>uninstall.mysql.sql</filename>
+	<filename>admin.recipe.html.php</filename>
+	<filename>admin.recipe.php</filename>
+	<filename>controller.php</filename>
+	<filename>tables/recipe.php</filename>
+	<filename>tables/dietcat.php</filename>
+	<filename>tables/project.php</filename>
+	<filename>toolbar.recipe.html.php</filename>
+	<filename>toolbar.recipe.php</filename>
+	</files>
+</administration>
+</install>

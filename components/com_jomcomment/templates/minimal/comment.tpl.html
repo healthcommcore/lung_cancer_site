@@ -1,0 +1,42 @@
+<?php if($debugview):?>
+<link href="comment_style.css" rel="stylesheet" type="text/css" />
+<?php endif;?>
+<?php if($comments) foreach($comments as $comment): ?>
+<?php
+if($comment->hidden) {
+// a lowly rated comment will be slightly hidden,
+?>
+<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>" >
+<b><?php echo $comment->title; ?></b><i>, _JC_LOW_VOTE</i> [<a href="javascript:void(0);" onclick="jax.call('jomcomment', 'jcxShowComment',<?php echo $comment->id; ?>);">_JC_SHOW_LOW_VOTE</a>]
+</div>
+<?php } else{?>
+	<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>" >
+
+<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+<?php echo $comment->adminPanel; ?> <?php echo $comment->gravatar; ?>  <b><?php echo $comment->title; ?></b>
+<br/>
+    
+		<span class="small">_JC_TPL_WRITTEN_BY <?php if($comment->website): ?><a href="<?php echo $comment->website; ?>" rel="nofollow" target="_blank"><?php echo $comment->name; ?></a><?php else: ?><?php echo $comment->name; ?><?php endif;?> , <?php echo $comment->date; ?></span>
+		<br/><br /> 
+    <span id="comment-text-container-<?php echo $comment->id; ?>"><?php echo $comment->comment; ?> </span><br />
+	<?php if($votes){ ?>
+		<div class="show-report" onclick="<?php echo $comment->onclick_report; ?>">_JC_TPL_ABUSE_REPORT</div>
+		<div class="show-votedown" onclick="<?php echo $comment->onclick_votedown; ?>">_JC_TPL_DOWN_VOTE</div>
+		<div class="show-voteup" onclick="<?php echo $comment->onclick_voteup; ?>">_JC_TPL_UP_VOTE</div>
+	<?php } ?>
+	<br />
+<?PHP
+	if($votes){
+?>
+	<div align="right">_JC_TPL_DISPLAY_VOTES <span id="cvote-<?PHP echo $comment->id;?>"><?PHP printf('%+d',$comment->voted);?></span></div>
+<?PHP
+	}
+?>
+    <br /> 
+</div> 
+<?php }
+endforeach; ?>
+
+
+

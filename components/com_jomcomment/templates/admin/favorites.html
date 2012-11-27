@@ -1,0 +1,58 @@
+<!-- some header stuff -->
+<?php
+$cms    =& cmsInstance('CMSCore');
+$cms->load('helper','url');
+?>
+<div id="jomcomment">
+<link href="<?php echo $cms->get_path('live'); ?>/components/com_jomcomment/templates/admin/admin.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="<?php echo $cms->get_path('live'); ?>/components/com_jomcomment/templates/admin/admin_ui.css" type="text/css" media="screen" />
+<div class="componentheading">My Favorites Article</div><br />
+<?php
+global $mainframe;
+$html = new CMSHtml();
+$links  = array(
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=mycomments&Itemid=' . $jcitemid),
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=mysubscriptions&Itemid=' . $jcitemid),
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=myfavorites&Itemid=' . $jcitemid)
+				);
+$captions   = array('My Comments','Comment Subscriptions','Favorite Entry');
+
+echo $html->show_tabbed_nav($links, $captions, 2);
+?>
+<!--
+<div style="margin-top:8px">
+<a class="azbutton" onclick="show_dashboard();" href="javascript:void(0);"><span>Approve all</span></a>
+<a class="azbutton" onclick="show_dashboard();" href="javascript:void(0);"><span>Remove unpublished</span></a>
+</div>-->
+<div style="clear:both"></div>
+<?php
+$cms =	&cmsInstance('CMSCore');
+$cms->load('libraries', 'table');
+
+if($favorites){
+	global $mainframe;
+
+	$cms->table->clear();
+	$cms->table->set_heading('', 'Content Title', '');
+
+	foreach($favorites as $row){
+
+		#actions
+		$action = '[ <a href="javascript:void(0);" onclick="jax.call(\'jomcomment\',\'jcxRemoveFav\',\'' . $row->id . '\');">remove</a> ]';
+		$feed_link 	= cmsSefAmpReplace("index.php?option=com_jomcomment&amp;task=rss&amp;contentid=$row->contentid&amp;opt=$row->option");
+
+		$title = '<a href="'.$row->parentLink.'" >'.$row->title.'</a>';
+
+		$feed = '<a href="' . $feed_link . '"><img src="'.JC_COM_LIVEPATH.'/images/feed.png" border="0" /></a>';
+
+		#Add the rows
+		$cms->table->add_row($feed , $title, $action);
+	}
+
+	echo $cms->table->generate();
+	echo $pagination;
+} else {
+	echo "You have not set any article as your favorite";
+}
+?>
+</div>

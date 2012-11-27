@@ -1,0 +1,32 @@
+<div>
+<form id="sendMailForm" method="post" >
+<table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" class="liveEditForm">
+	<tr>
+		<td align="right" width="20%"><strong>From:</strong></td>
+		<td width="80%">
+			<input name="from" id="from" type="text" class="inputbox" style="background-color: rgb(255, 255, 160);" value="" size="50" maxlength="200">
+		</td>
+	</tr>
+	<tr>
+		<td align="right"><strong>Title:</strong></td>
+		<td>
+			<input name="title" id="title" type="text" class="inputbox" style="background-color: rgb(255, 255, 160);" value="" size="50" maxlength="200">
+		</td>
+	</tr>
+	<tr>
+		<td align="right" valign="top"><strong>Message:</strong></td>
+		<td>
+			<textarea style="background-color: rgb(255,255,160);" name="message" class="inputbox" id="message" cols="50" rows="10"></textarea>
+		</td>
+	</tr>
+	<tr>
+	<td align="right" valign="top"><input type="hidden" id="recipient" name="recipient" value="<?php echo $recipient;?>"></td>
+	<td>
+		<input type="button" value="Send" class="CommonTextButtonSmall" onClick="jax.call('jomcomment', 'jcxSendMail', jax.getFormValues('sendMailForm'));">
+		<input type="button" value="Dismiss" class="CommonTextButtonSmall" onClick="jQuery('#popupWindowContainer').css('visibility', 'hidden');">
+	</td>
+	</tr>
+</table>
+
+</form>
+</div>

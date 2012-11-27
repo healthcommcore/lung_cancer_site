@@ -1,0 +1,48 @@
+<div>
+<form  id="liveEditForm" method="post" >
+	  <table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" class="liveEditForm">
+	    <tbody>
+	    <tr>
+	      <td align="right" width="20%"><strong>Name:</strong></td>
+	      <td width="80%"><input name="name" id="name" type="text" class="inputbox" style="background-color: rgb(255, 255, 160);" value="<?php echo $name; ?>" size="50" maxlength="200">      </td>
+	    </tr>
+	
+	    <tr>
+	      <td align="right" valign="top"><strong>Email:</strong></td>
+	      <td><input style="background-color: rgb(255, 255, 160);" name="email" class="inputbox" id="email" value="<?php echo $email; ?>" size="50" maxlength="100" type="text"></td>
+	    </tr>
+	    <tr>
+	      <td align="right" valign="top"><strong>Website:</strong></td>
+	      <td><input name="website" class="inputbox" id="website" value="<?php echo $website; ?>" size="50" maxlength="100" type="text"></td>
+	    </tr>
+	
+	    <tr>
+	      <td align="right" valign="top"><strong>Content Item:</strong></td>
+	      <td><?= $content_title; ?></td>
+	    </tr>
+	    <tr>
+	      <td align="right" valign="top"><strong>Title:</strong></td>
+	      <td><input name="title" id="title" type="text" class="inputbox" value="<?php echo $title; ?>" size="50" maxlength="200">      </td>
+	    </tr>
+	    <tr>
+	      <td align="right" valign="top"><strong>Comment:</strong></td>
+	
+	      <td><textarea class="inputbox" cols="50" rows="6" name="comment" id="comment"><?php echo $comment; ?></textarea>      </td>
+	    </tr>
+	    <tr>
+	      <td align="right" width="20%"><strong>Date:</strong></td>
+	      <td width="80%"><input name="date" id="date" type="text" class="inputbox" style="background-color: rgb(255, 255, 160);" value="<?php echo $date; ?>" size="50" maxlength="30">      </td>
+	    </tr>
+	    <tr>
+	      <td align="right" valign="top">
+	      <input id="id" name="id" value="<?php echo $id; ?>" type="hidden">
+	      </td>
+	    <td>
+	        <input type="button" value="Save" class="CommonTextButtonSmall" onClick="jax.call('jomcomment', 'jcxSaveComment', jax.getFormValues('liveEditForm'));">
+			<input type="button" value="Discard &amp; Close" class="CommonTextButtonSmall" onClick="jQuery('#popupWindowContainer').css('visibility', 'hidden');">
+	        
+	        &nbsp;</td>
+	    </tr>
+    </tbody></table>
+	</form>
+</div>

@@ -1,0 +1,227 @@
+div.commentBlogView {
+	display: block;
+	text-align: right;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-top: 4px;
+    margin-bottom: 4px;
+	clear:both;
+}
+
+div.commentTools{
+	border-bottom: 1px solid #BCBCBC;
+	height: 18px;
+}
+
+.jc_comment_panel {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 25px;
+}
+.jc_comment_panel li {
+	list-style: none;
+	float: right;
+	background: none;
+	padding: 0 0 0 10px;
+	margin: 0;
+	display: inline;
+}
+.jc_comment_panel li a {
+	padding: 0 0 0 20px;
+}
+.jc_comment_panel .jc_comment_panel_up {
+	width: 65px;
+}
+.jc_comment_panel .jc_comment_panel_down {
+	width: 85px;
+}
+.jc_comment_panel .jc_comment_panel_up a:link,
+.jc_comment_panel .jc_comment_panel_up a:visited {
+	height: 18px;
+	display: block;
+	cursor: pointer;
+	background: transparent url(images/votings.gif) no-repeat 0 2px;
+}
+.jc_comment_panel .jc_comment_panel_up a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0 -16px;
+}
+.jc_comment_panel .jc_comment_panel_down a:link,
+.jc_comment_panel .jc_comment_panel_down a:visited {
+	height: 18px;
+	display: block;
+	cursor: pointer;
+	background: transparent url(images/votings.gif) no-repeat 0 -34px;
+}
+.jomentry1 .jc_comment_panel .jc_comment_panel_down a:hover,
+.jomentry2 .jc_comment_panel .jc_comment_panel_down a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0 -52px;
+}
+
+.jc_comment_panel .jc_comment_panel_report {
+	width: 100px;
+}
+.jomentry1 .jc_comment_panel .jc_comment_panel_report a:link,
+.jomentry1 .jc_comment_panel .jc_comment_panel_report a:visited,
+.jomentry2 .jc_comment_panel .jc_comment_panel_report a:link,
+.jomentry2 .jc_comment_panel .jc_comment_panel_report a:visited {
+	height: 18px;
+	display: block;
+	cursor: pointer;
+	background: transparent url(images/votings.gif) no-repeat 0 -71px;
+}
+.jomentry1 .jc_comment_panel .jc_comment_panel_report a:hover,
+.jomentry2 .jc_comment_panel .jc_comment_panel_report a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0px -89px;
+}
+
+.jomentry1, .jomentry2, #jc_commentFormDiv{
+	margin: 1ex 2ex;
+	padding: 0 1ex;
+	border: 1px dotted #999;
+}
+
+.jomentry1 blockquote, .jomentry2 blockquote {
+	margin: 10px;
+	padding-left: 5px;
+	border-left: 5px solid #ddd;
+}
+
+.jomentry1
+{
+	background-color:inherit;
+	border:1px solid #fff;
+}
+
+.jomentry2
+{
+	background-color:#F7FBCD;
+	border:1px solid #E1EA92;
+}
+
+.jomauthor {
+	background-color: #EEF3BE;
+	background-image:none;
+	border: medium solid #CCCC00;
+} 
+
+div.bCommentTitle {
+	margin: 1ex 0;
+	font-weight: bold;
+}
+div.bCommentText {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+div.bCommentSmallPrint {
+	clear: both;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	margin: 1ex 0;
+}
+
+.avatarImg{
+	float: right;
+	padding: 2px;
+	clear:none;
+}
+.avatarImg img{
+	border:1px solid #ddd
+}
+#jc_name, #jc_website, #jc_email, #jc_title, #jc_comment, #jc_password
+{
+	background-color: #FCFFE1;
+	border: 1px solid #dfee91;
+	width: 98%;
+	padding: 4px;
+	margin: 0ex;
+}
+
+#jc_name, #jc_website, #jc_email, #jc_password
+{
+	width: 50%;
+}
+
+#jc_name:focus, #jc_website:focus, #jc_email:focus, #jc_title:focus, #jc_comment:focus, #jc_password:focus
+{
+	border: 1px solid #bfdc21;
+}
+
+blockquote {
+  color: #747474; 
+  padding-left: 30px;
+}
+
+#jc_commentForm{
+    padding-top: 2px;
+    padding-bottom: 6px;
+}
+
+#jc_commentForm label{
+    font-weight:bold;
+    padding-top: 6px;
+    padding-bottom: 4px;
+    display: block;
+}
+
+#jc_commentForm button, #jc_captchaImg{
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+.comment_action{
+	background-color:#EEEEEE;
+	border-color:#CCCCCC rgb(153, 153, 153) rgb(153, 153, 153) rgb(204, 204, 204);
+	border-style:solid;
+	border-width:1px;
+	color:#333333;
+	display:-moz-inline-box;
+	font-family:Tahoma,Arial,Helvetica;
+	font-size:100%;
+	margin:1px;
+/*	padding:2px; */
+	vertical-align:middle;
+	white-space:nowrap;
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
+.show-comment,
+.show-linkmore,
+.show-hit,
+.jctools,
+.show-feed,
+.show-report,
+.show-voteup,
+.show-votedown {
+	display: inline;
+	float: right;
+	height: 18px;
+	text-indent: 24px;
+	margin-left: 4px;
+	margin-right: 4px;
+	background-repeat:no-repeat;
+	background-position: 0 50%;
+}
+div.show-comment {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -71px;
+}
+div.show-linkmore {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -90px;
+}
+div.show-hit {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -35px;
+}
+div.jcfav {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -54px;
+}
+div.jcshare {
+	background: transparent url(images/toolbar.gif) no-repeat 0 1px;
+}
+div.jcemail {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -16px;
+}
+div.jcpreview {
+	background: transparent url(images/toolbar.gif) no-repeat -18px -36px;
+}

@@ -1,0 +1,26 @@
+<div style="position:relative;">
+<div class="commentBlogView commentTools"> 
+    	<div class="show-linkmore jcfav"> <a href="javascript:void(0);" onclick="hide_block('jcshareDiv');toggle_visibility('jcfavDiv');"> Set as favorite </a> </div>
+		<div class="show-linkmore jcshare"> <a href="javascript:void(0);" onclick="hide_block('jcfavDiv');toggle_visibility('jcshareDiv');"> Share This </a> </div>
+		<div class="show-linkmore"> <a href="javascript:void(0);" onclick="window.open('http://localhost.azrul.com/index2.php?option=com_content&task=emailform&id=1&itemid=2','win2','status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=400,height=250,directories=no,location=no'); return false;"> Email This </a> </div> 
+    	<div class="show-hit"><a href="#">Hits: 100</a></div> 
+</div>
+<div id="jcshareDiv" class="comment_action" style="display:none">
+	<ul>
+		<li><a target="_blank" href="http://www.facebook.com/sharer.php?u=<?php echo $uri; ?>&amp;t=About+Google+Shared+Stuff" id="bm_facebook">del.icio.us</a></li>
+		<li><a target="_blank" href="http://del.icio.us/post?<?php echo $uri; ?>&amp;title=Finally%2C+football+is+back%21" id="bm_delicious">del.icio.us</a></li>
+		<li><a target="_blank" href="http://digg.com/submit?phase=2&amp;url=<?php echo $uri; ?>title=Finally%2C+football+is+back%21" id="bm_digg">Digg</a></li>
+		<li><a target="_blank" href="http://furl.net/storeIt.jsp?u=<?php echo $uri; ?>t=Finally%2C+football+is+back%21" id="bm_furl">Furl</a></li>
+		<li><a target="_blank" href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u=<?php echo $uri; ?>t=Finally%2C+football+is+back%21" id="bm_yahoo_myweb">Yahoo! My Web</a></li>
+		<li><a target="_blank" href="http://www.stumbleupon.com/submit?url=<?php echo $uri; ?>title=Finally%2C+football+is+back%21" id="bm_stumbleupon">StumbleUpon</a></li>
+		<li><a target="_blank" href="http://www.google.com/bookmarks/mark?op=edit&amp;bkmk=<?php echo $uri; ?>title=Finally%2C+football+is+back%21" id="bm_google_bmarks">Google Bookmarks</a></li>
+		<li><a target="_blank" href="http://www.technorati.com/faves?add=<?php echo $uri; ?>" id="bm_technorati">Technorati</a></li>
+		<li><a target="_blank" href="http://reddit.com/submit?url=<?php echo $uri; ?>&title=Finally%2C+football+is+back%21" id="bm_reddit">reddit</a></li>	
+	</ul>
+	<div class="clear" style="clear:both;z-order:100"></div>
+</div>
+<div id="jcfavDiv" class="comment_action" style="display:none">
+	<p>Marking article as your favorite, please wait..</p>
+	<div class="clear" style="clear:both;z-order:100"></div>
+</div>
+</div>

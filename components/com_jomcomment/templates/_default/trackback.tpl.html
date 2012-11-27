@@ -1,0 +1,16 @@
+<?php if($debugview):?>
+<link href="comment_style.css" rel="stylesheet" type="text/css" />
+<?php endif;?>
+<?php foreach($trackbacks as $trackback): ?>
+<div class="trackback" id="ping-<?php echo $trackback->id; ?>">
+<a name="trackback-<?php echo $trackback->id;?>" id="trackback-<?php echo $trackback->id;?>"></a>
+	<div class="trackback-content">
+	<p><?php echo $trackback->num; ?>. <a href="<?php echo $trackback->url; ?>" rel="nofollow nofollow"><?php echo $trackback->title; ?></a><br/>
+	<?php echo $trackback->excerpt; ?>	                
+	</p>
+	</div>
+	<p class="trackback-footer">
+	Tracked on <a href="#ping-<?php echo $trackback->id; ?>" rel="nofollow"><?php echo $trackback->date; ?></a>
+	</p>
+</div>
+<?php endforeach; ?>

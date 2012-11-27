@@ -1,0 +1,24 @@
+/* CSS Document */
+body {
+	background-color:#FFFFFF;
+	}
+div#maincol {
+	padding-left:40px;
+	padding-right:20px;
+	margin-right:20px;
+	margin-left:0px;
+}
+div#header-bar, div#bottom-menu,
+div#horiz-menu,
+div#leftcol, 
+a.tracknow,
+.noprint
+{
+	display:none;
+	color:#fff;
+	}
+
+div#bottom {
+	background:none;
+
+}

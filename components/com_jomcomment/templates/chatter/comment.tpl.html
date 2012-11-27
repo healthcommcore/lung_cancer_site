@@ -1,0 +1,69 @@
+<?php if($debugview):?>
+<link href="comment_style.css" rel="stylesheet" type="text/css" />
+<?php endif;?>
+
+<?php foreach($comments as $comment): ?>
+<?php if($comment->hidden) : ?>
+<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>" >
+	<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+	<strong><?php echo $comment->title; ?></strong><em>, _JC_LOW_VOTE</em> [<a href="javascript:void(0);" onclick="jax.call('jomcomment', 'jcxShowComment',<?php echo $comment->id; ?>);">_JC_SHOW_LOW_VOTE</a>]
+</div>
+<?php else : ?>
+<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>" >
+	<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+	<?php echo $comment->adminPanel; ?>
+	<h4 class="CommentTitle">
+		<a id="author-<?php echo $comment->id; ?>" title="<?php echo $comment->name; ?>"><?php echo $comment->name; ?></a>
+		said:
+		<img src="images/spacer.gif" alt="" class="CommentArrow"  style="vertical-align:bottom;" />
+	</h4>
+	<div class="CommentText">
+		<div class="CommentText2">
+			<div class="CommentText3">
+				<table width="98%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td valign="top"><?php echo $comment->gravatar; ?></td>
+						<td width="100%" valign="top"  id="comment-text-container-<?php echo $comment->id; ?>">
+							<strong><?php echo $comment->title; ?></strong><br />
+							<?php echo $comment->comment; ?>
+						</td>
+					</tr>
+					<?php if( $votes) : ?>
+					<tr>
+						<td>&nbsp;</td>
+						<td>
+							<ul class="jc_comment_panel">
+								<li class="jc_comment_panel_report">
+									<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_report; ?>" title="_JC_TPL_ABUSE_REPORT">
+									_JC_TPL_ABUSE_REPORT
+									</a>
+								</li>
+								<li class="jc_comment_panel_down">
+									<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_votedown; ?>" title="_JC_TPL_DOWN_VOTE">
+									_JC_TPL_DOWN_VOTE
+									</a>
+								</li>
+								<li class="jc_comment_panel_up">
+									<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_voteup; ?>" title="_JC_TPL_UP_VOTE">
+									_JC_TPL_UP_VOTE
+									</a>
+								</li>
+							</ul>
+						</td>
+					</tr>
+					<?php endif; ?>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div class="CommentFooter">
+	<?php echo $comment->date; ?><?php if($comment->website): ?> | <a href="<?php echo $comment->website; ?>" rel="nofollow" target="_blank"> url </a><?php endif;?><br />
+	<?php if($votes): ?>
+		_JC_TPL_DISPLAY_VOTES <span id="cvote-<?php echo $comment->id;?>"><?php printf('%+d',$comment->voted);?></span>
+	<?php endif; ?>
+	</div>
+</div>
+<?php
+endif;
+endforeach;
+?>

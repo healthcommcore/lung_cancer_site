@@ -1,0 +1,199 @@
+<!-- JOM COMMENT START -->
+<div id="jcWrapper">
+<div style="padding: 0px; clear: both; height: 1px;"></div>
+<?php if($debugview):?>
+<link href="comment_style.css" rel="stylesheet" type="text/css" />
+<?php endif;?>
+
+<!-- Sharing toolbar -->
+<?php if($show['sharethis']): ?>
+<?php echo $sharethis; ?>
+<?php endif; ?>
+<!-- End Sharing toolbar -->
+
+<?php if ( $show['trackback'] ): ?>
+<!-- Trackback -->
+<h4 class="jc_title" id="trackback_title">
+	_JC_TPL_TB_TITLE<span>(<?php echo $trackback['count']; ?>)</span>
+</h4>
+<a href="<?php echo $trackback['link']; ?>" type="application/x-www-form-urlencoded" class="jc_trackback_link">
+	_JC_TPL_TRACKBACK_URI
+</a>
+<div id="trackback_entries"></div>
+<!-- End Trackback -->
+<?php endif; ?>
+
+<!-- Comments Title -->
+<h4 class="jc_title">_JC_TPL_COMMENTS <span id="jc_num_comment"> (<?php echo $comments['count']; ?>)</span></h4>
+
+<?php if ( $show['feed'] ): ?>
+<!-- RSS Feed link below the title -->
+<a href="<?php echo $feed['link']; ?>" rel="bookmark" class="jc_rss_link" title="_JC_TPL_COMMENT_RSS_URI">
+	<img src="images/blank.gif" height="21" width="22" alt="_JC_TPL_COMMENT_RSS_URI" border="0" />
+</a>
+<div class="jc_clear"></div>
+<!-- End RSS Feed link below the title -->
+<?php endif; ?>
+
+<?php if ( $comments ): ?>
+	<?php if ( $show['hide_show_comment'] ): ?>
+<!-- Hide/Show input form notice -->
+<br />
+<a onclick="jc_toggleDiv('jc_commentsDiv');" class="jc_show_form_notice">
+	_JC_TPL_HIDESHOW_AREA
+</a>
+<!-- End Hide/Show input form notice -->
+	<?php endif; ?>
+
+	<?php echo @$pagingLink; ?>
+<!-- Placeholder for all comments. REQUIRED.  -->
+<div id="jc_commentsDiv" <?php if($show['start_comment_hidden']){ echo 'style="display:none; visibility:hidden;"'; } else { echo 'style="display:block; visibility:visible; "'; } ?>>
+	<?php echo $comments['text']; ?>
+</div>
+	<?php echo @$pagingLink; ?>
+<!-- End Placeholder for all comments. REQUIRED.  -->
+<?php endif; ?>
+
+<!-- 'Write Comment' Title -->
+<a name="comments" id="comments"></a>
+<h4 class="jc_title" id="write_comment_title">_JC_TPL_WRITE_COMMENT</h4>
+<!-- End 'Write Comment' Title -->
+
+<!-- Hide/Show input form notice -->
+<?php if($show['hide_show_form']): ?>
+<div class="feed_link" onclick="jc_toggleDiv('jc_commentFormDiv');" ><a><img src="images/shape_square_edit.png" alt="feed" width="16" height="16" border="0" />_JC_TPL_HIDESHOW_FORM</a></div>
+<?php endif; ?>
+
+<!-- Comment locked notice -->
+<?php if($lock['locked']): ?>
+<div id="comment_locked_notice" class="jomentry2">_JC_TPL_INPUT_LOCKED</div>
+<?php endif; ?>
+
+<!-- Login required -->
+<?php if(!$show['allow_guest']): ?>
+<div id="comment_locked_notice" class="jomentry2">_JC_TPL_GUEST_MUST_LOGIN</div>
+<?php endif; ?>
+
+<!-- Show link to the last page -->
+<?php if($show['goto_last_page']): ?>
+<div id="comment_goto_last_page" class="jomentry2">_JC_TPL_GOLAST_PAGE <a href="<?php echo $last_page_link; ?>#comments" class="pagenav" >_JC_TPL_GOLINK_LAST</a></div>
+<?php endif; ?>
+
+<!-- Placeholder for ajax notification -->
+<div id="jc_busyDiv"></div>
+
+<?php if ( $show['inputform'] ): ?>
+<!-- Input form begin -->
+<div id="jc_commentFormDiv" <?php if ( $show['start_form_hidden'] ) { echo 'style="display: none; visibility: hidden;"'; } else { echo 'style="display: block; visibility: visible;"'; } ?>>
+
+<div id="jc_commentFormContainer">
+	<form method="post" onsubmit="return false;" action="" id="jc_commentForm" name="jc_commentForm">
+
+		<?php if($show['name']): ?>
+		<div style="width: 50%; margin-bottom: 5px;">
+			<label for="jc_name" style="float: left;">_JC_TPL_AUTHOR</label>
+			<input name="jc_name" type="text" id="jc_name" value="<?php echo $my['name']; ?>" style="float: left;" class="jc_inputbox" />
+		</div>
+		<?php endif; ?>
+
+		<?php if($show['email']): ?>
+		<div style="width: 50%; margin-bottom: 5px;">
+			<label for="jc_email" style="float: left; display: block;">_JC_TPL_EMAIL</label>
+			<input name="jc_email" type="text" id="jc_email" style="float: left;" class="jc_inputbox" />
+		</div>
+		<?php endif; ?>
+
+		<?php if ( $show['website'] ): ?>
+		<div style="width: 50%; margin-bottom: 5px;">
+			<label for="jc_website" style="float: left; display: block;">_JC_TPL_WEBSITE</label>
+			<input name="jc_website" type="text" id="jc_website" style="float: left;" class="jc_inputbox" />
+		</div>
+		<?php endif; ?>
+        <div class="jc_clear"></div>
+
+		<?php if ( $show['title'] ): ?>
+		<div style="width: 100%; margin-bottom: 5px;">
+			<label for="jc_title" style="float: left; display: block;">_JC_TPL_TITLE</label>
+			<input name="jc_title" type="text" id="jc_title" style="float: left;" class="jc_inputbox" />
+		</div>
+		<?php endif; ?>
+        <div class="jc_clear"></div>
+
+		<div>
+		<label for="jc_comment">_JC_TPL_COMMENT</label>
+		<?php if ( $show['bbcode']  || $show['useSmilies']): ?>
+			<?php echo $bbcode; ?>
+		<?php endif; ?>
+			<textarea name="jc_comment" cols="40" rows="6" id="jc_comment" class="jc_inputbox"></textarea>
+		</div>
+
+		<div class="jc_comment_resize">
+			<span onclick="jcResizeComment(-65);">_JC_TPL_SMALLER</span> |
+			<span onclick="jcResizeComment(65);">_JC_TPL_BIGGER</span>
+		</div>
+
+
+		<?php if ( $show['subscribe'] ): ?>
+		<!-- Subscribe via email -->
+		<div>
+			<label class="subscribe">
+			<input id="subscribe" name="subscribe" type="checkbox" value="1" <?php echo $subscribeOn; ?> />_JC_TPL_USERSUBSCRIBE
+			</label>
+		</div>
+		<!-- End Subscribe via email -->
+		<?php endif; ?>
+
+		<?php if ( $show['terms'] ): ?>
+		<!-- Submit Policy -->
+		<div>
+		    <label class="agree">
+			<input name="jc_agree" type="checkbox" id="jc_agree" />_JC_TPL_AGREE_TERMS <a href="javascript:void(0);" onclick="jax.call('jomcomment','jcxShowTerms');return false;">_JC_TPL_LINK_TERMS</a>
+			<span class="jcerr" id="err_jc_agree"></span>
+			</label>
+		</div>
+		<!-- End Submit Policy -->
+		<?php endif; ?>
+
+		<?php if ( $show['captcha'] ): ?>
+		<div style="margin-top: 10px;">
+			<img src="<?php echo $captcha['img']?>" alt="security image" name="jc_captchaImg" border="0" id="jc_captchaImg" style="vertical-align:middle" /><br />
+			_JC_TPL_SEC_CODE
+		</div>
+		<div>
+			<input name="jc_password" type="text" id="jc_password" size="5" maxlength="5" class="jc_inputbox jc_captcha" />
+		</div>
+		<?php endif; ?>
+
+		<?php if($show['recaptcha']): ?>
+		<div>
+			<?php echo $recaptcha; ?>
+		</div>
+		<?php endif; ?>
+
+		<div style="margin-top: 5px;">
+			<button id="jc_submit" onclick="addComments(); return false;" class="button" >_JC_TPL_SUBMIT_COMMENTS</button>
+			<?php if($show['previewbutton']): ?>
+			<button id="jc_preview" onclick="previewComment(); return false;" class="button" >_JC_TPL_PREVIEW_COMMENTS</button>
+			<?php endif; ?>
+		</div>
+
+		<noscript>
+			<div>_JC_TPL_NOSCRIPT</div>
+		</noscript>
+
+		<input name="jc_contentid" type="hidden" id="jc_contentid" value="<?php echo $site['id']; ?>"/>
+		<input name="jc_sid" type="hidden" id="jc_sid" value="<?php echo $captcha['sid']; ?>" />
+		<input name="jc_task" type="hidden" id="jc_task" value="add" />
+		<input name="jc_isajax" type="hidden" id="jc_isajax" value="0" />
+		<input name="jc_option" type="hidden" id="jc_option" value="<?php echo $site['option']; ?>"/>
+		<?php
+		if(isset($show['extra']) && $show['extra']){
+			echo $show['extra'];
+		}
+		?>
+	</form>
+</div>
+</div>
+<!-- Input form end -->
+<?php endif; ?>
+</div>

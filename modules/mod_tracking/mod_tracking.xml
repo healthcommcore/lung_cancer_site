@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<install type="module" version="1.5">
+  <name>HD2 Tracking</name>
+  <author>Therese Lung</author>
+  <creationDate>October 2008</creationDate>
+  <copyright>(C) 2007 Therese Lung</copyright>
+  <version>1.0</version>
+  <description>HD2 Tracking module</description>
+  <files>
+    <filename module="mod_tracking">mod_tracking.php</filename>
+    <filename>mod_tracking.html.php</filename>
+  </files>
+  <params>
+  	<param name="type" type="list" default="" label="Display type" description="The type of tracking display">
+		<option value="">Track (default)</option>
+		<option value="weekly">Week</option>
+		<option value="history">History</option>
+		<!--option value="back">Back Days</option-->
+		<option value="summary">Home page summary</option>
+	</param>
+  	<param name="day" type="list" default="" label="Day" description="The back day (if Track display)">
+		<option value="">Today (default)</option>
+		<option value="1">Yesterday</option>
+		<option value="2">2 days ago</option>
+		<option value="3">3 days ago</option>
+	</param>
+  </params>
+</install>

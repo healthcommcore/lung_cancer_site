@@ -1,0 +1,43 @@
+<form name="emailForm" id="emailForm" action="#" onsubmit="return false;" method="post">
+<table width="100%" cellpadding="3">
+	<tr>
+		<td>
+			<span class="smalltext">_JC_FRIEND_EMAIL:</span>
+		</td>
+		<td align="left">
+			<input type="text" name="recipientEmail" id="recipientEmail" class="inputbox" size="30">
+			<span id="emailRecipientError" class="jcerr"></span>
+		</td>
+	</tr>
+	<tr>
+		<td><span class="smalltext">_JC_YOUR_NAME:</span></td>
+		<td align="left">
+			<input type="text" name="senderName" id="senderName" class="inputbox" size="30" value="<?php echo $name; ?>">
+			<span id="emailNameError" class="jcerr"></span>
+		</td>
+	</tr>
+	<tr>
+		<td><span class="smalltext">_JC_YOUR_EMAIL:</span></td>
+		<td align="left">
+			<input type="text" name="senderEmail" id="senderEmail" class="inputbox" size="30" value="<?php echo $email; ?>">
+			<span id="emailSenderError" class="jcerr"></span>
+		</td>
+	</tr>
+	<tr>
+		<td width="35%">
+			<span class="smalltext">_JC_EMAIL_SUBJECT:</span>
+		</td>
+		<td width="65%" align="left">
+			<input type="text" id="senderSubject" name="senderSubject" size="35" class="inputbox">
+			<span id="emailSubjectError" class="jcerr"></span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2" align="center">
+			<button id="emailbutton" class="button" onclick="javascript:jax.call('jomcomment','jcxSendEmail', jax.$('recipientEmail').value, jax.$('senderName').value, jax.$('senderEmail').value, jax.$('senderSubject').value, '<?php echo $uri; ?>');">_JC_SEND_BUTTON</button>&nbsp;
+			<button type="reset" class="button">_JC_RESET_BUTTON</button>
+		</td>
+	</tr>
+</table>		
+<div class="clear" style="clear:both;z-order:100"></div>
+</form>

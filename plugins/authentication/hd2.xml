@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="authentication">
+	<name>Authentication - HD2</name>
+	<author>Joomla! Project</author>
+	<creationDate>October 2085</creationDate>
+	<copyright>Copyright (C) 2008 DFCI - HCC.</copyright>
+	<authorEmail>therese_lung@dfci.harvard.edu</authorEmail>
+	<authorUrl></authorUrl>
+	<version>1.5</version>
+	<description>Healthy Directions II authentication plugin</description>
+	<files>
+		<filename plugin="hd2_sub">hd2.php</filename>
+	</files>
+	<params/>
+</install>

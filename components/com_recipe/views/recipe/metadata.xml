@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<view title="Single Recipe">
+		<message>
+		<![CDATA[Shows individual recipes.]]>
+		</message>
+	</view>
+	<params>
+		<param name="id" type="text" size="3" default="" label="Recipe ID"  description="Enter the ID of the recipe to be displayed" />
+	</params>
+</metadata>

@@ -1,0 +1,34 @@
+<div>
+<form id="sendMailForm" method="post" >
+<table width="100%" border="0" align="center" cellpadding="4" cellspacing="1" class="liveEditForm">
+	<tr>
+		<td align="right" width="20%"><strong>Old Article:</strong></td>
+		<td width="80%">
+			<?php echo $oldTitle; ?>
+		</td>
+	</tr>
+	<tr>
+		<td align="right" valign="top"><strong>New Article:</strong></td>
+		<td>
+			<select id="contentid">
+			<?php
+				foreach($newTitles as $title){
+			?>
+				<option value="<?php echo $title->id;?>"><?php echo $title->title;?></option>
+			<?php
+				}
+			?>
+			</select>
+		</td>
+	</tr>
+	<tr>
+	<td align="right" valign="top"><input type="hidden" id="commentid" name="commentid" value="<?php echo $id; ?>"></td>
+	<td>
+		<input type="button" value="Move" class="CommonTextButtonSmall" onClick="jax.call('jomcomment', 'jcxMoveComment', jax.$('commentid').value, jax.$('contentid').value);">
+		<input type="button" value="Dismiss" class="CommonTextButtonSmall" onClick="jQuery('#popupWindowContainer').css('visibility', 'hidden');">
+	</td>
+	</tr>
+</table>
+
+</form>
+</div>

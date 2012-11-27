@@ -1,0 +1,102 @@
+<!-- some header stuff -->
+<?php
+$cms    =& cmsInstance('CMSCore');
+$cms->load('helper','url');
+?>
+<div id="jomcomment">
+<link href="<?php echo $cms->get_path('live'); ?>/components/com_jomcomment/templates/admin/admin.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="<?php echo $cms->get_path('live'); ?>/components/com_jomcomment/templates/admin/admin_ui.css" type="text/css" media="screen" />
+<div class="componentheading">My Comments</div><br />
+<?php
+global $mainframe;
+$html = new CMSHtml();
+$links  = array(
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=mycomments&Itemid=' . $jcitemid),
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=mysubscriptions&Itemid=' . $jcitemid),
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=myfavorites&Itemid=' . $jcitemid)
+				);
+$captions   = array('My Comments', 'Comment Subscriptions', 'Favorite Entry');
+
+echo $html->show_tabbed_nav($links, $captions, 0);
+?>
+<div style="clear:both"></div>
+<?php
+$cms =	&cmsInstance('CMSCore');
+$cms->load('libraries', 'table');
+
+if($comments){
+	$cms->table->clear();
+	$cms->table->set_heading('', 'Comment excerpt', 'Date');
+
+	foreach($comments as $row){
+		if($row->show){
+			if ($row->published == 1)
+				$published = "<img id=\"pubImg$row->id\" src=\"" .$cms->get_path('live') ."/components/com_jomcomment/images/publish_g.png\" border=\"0\" title='Published'/>";
+			else
+				$published = "<img id=\"pubImg$row->id\" src=\"" .$cms->get_path('live') ."/components/com_jomcomment/images/publish_x.png\" border=\"0\" title='Waiting for admin to approve your comment'/>";
+	
+			# Make the links, we can only link on com_content, othewise, w can't really know for sure
+			$link       = $row->parentLink . '#comment-' . $row->id;
+			$comment    = jcTransformDbText($cms->trunchtml->trunchtml($row->comment, 30));
+			$comment    = '<a href="' . $link . '">' . $comment . '</a>';
+			
+			// add some additional info
+			$title = ('com_content' == $row->option || 'com_myblog' == $row->option) ? jcContentTitle($row->contentid) : '';
+			$comment .= (!empty($title)) ? '<br/><span class="smalltext"'.$title : '';
+			
+			$cms->table->add_row($published , $comment, $row->date);
+		}
+	}
+
+	echo $cms->table->generate();
+	echo $pagination;
+} else {
+	echo "No Comments";
+}
+?>
+<div id="popupWindowContainer" style="visibility:hidden; position:absolute" >
+	<div class="dropshadowBox">
+	<div class="innerbox">
+	<div id="popupWindowHandle"></div>
+		<div id="popupWindowEditable" >
+			<h4>Test 2</h4>
+		  <p>This has two wrapping div's. one for the shadow, and one for the border.</p>
+		</div>
+	</div>
+	</div>
+</div>
+
+
+</div>
+<style  type="text/css">
+<!--
+.dropshadowBox{
+	float:left;
+	clear:left;
+	background: url(components/com_jomcomment/images/shadowAlpha.png) no-repeat right bottom!important;
+	background: url(components/com_jomcomment/images/shadow.gif) no-repeat bottom right;
+	margin: 10px 0 10px 10px !important;
+	margin: 10px 0 10px 5px;
+	width: 500px;
+	padding: 0px;
+}
+.innerbox{
+	position:relative;
+	bottom:6px;
+	right: 6px;
+	border: 1px solid #999999;
+	padding:4px;
+	margin: 0px 0px 0px 0px;
+	background-color: #EBEBEB;
+}
+.innerbox{
+	/* IE5 hack */
+	\margin: 0px 0px -3px 0px;
+	ma\rgin:  0px 0px 0px 0px;
+}
+.innerbox p{		
+	font-size:14px;
+	margin: 3px;
+} -->
+</style>
+

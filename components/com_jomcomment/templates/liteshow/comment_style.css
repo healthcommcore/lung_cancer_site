@@ -1,0 +1,265 @@
+div.comment-text
+{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+div.commentBlogView
+{
+	display:block;
+	text-align: right;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-top: 4px;
+  margin-bottom: 4px;
+	clear:both;
+}
+
+div.commentTools{
+	border-bottom:1px solid #BCBCBC;
+	height:18px;
+}
+
+div.jctools, div.show-comment, div.show-linkmore, div.show-hit,  div.show-feed, div.show-report, div.show-voteup, div.show-votedown
+{
+	display:inline;
+	float:right;
+	height:18px;
+	text-indent: 24px;
+	margin-left: 4px;
+	margin-right: 4px;
+	background-repeat:no-repeat;
+	background-position: 0 50%;
+	background-image:url(images/comments.gif);
+}
+
+div.show-comment
+{
+	background-image:url(images/comments.gif);
+}
+
+div.show-linkmore
+{
+	background-image:url(images/page_go.gif);
+}
+div.show-hit{
+	background-image:url(images/chart_bar.gif);
+}
+
+div.show-report{
+	background-image:url(images/comments_alert.gif);
+	height:14px;
+	cursor:pointer;
+}
+div.show-voteup{
+	background-image:url(images/comments_voteup.gif);
+	height:14px;
+	cursor:pointer;
+}
+div.show-votedown{
+	background-image:url(images/comments_votedown.gif);
+	height:14px;
+	cursor:pointer;
+}
+
+div.show-feed
+{
+	width:18px;
+	background-image:none;
+}
+div.jcfav
+{
+	background-image:url(images/star.png);
+}
+
+div.jcshare
+{
+	background-image:url(images/share.png);
+}
+
+div.jcemail
+{
+	background-image:url(images/email.png);
+}
+
+div.jcpreview
+{
+	background-image:url(images/preview.gif);
+}
+
+.jomentry1, .jomentry2 , #jc_commentFormDiv
+{
+	border-bottom: 1px solid #ddd;
+	padding: 2px;
+	background-repeat:repeat-x;
+	background-position:top;
+	
+}
+
+.jomentry1 blockquote, .jomentry2 blockquote
+{
+	margin: 10px;
+	padding-left: 5px;
+	border-left: 5px solid #ddd;
+}
+
+.jomentry1
+{		
+	color:#000000;
+    background-color: #FAFDFD;
+}
+.jomentry1, .jomentry2 , #jc_commentFormDiv
+{
+	color:#000000;
+    background-color: #ECF2F8;
+	position: relative;
+}
+
+div.commentTitle{
+	height:24px;
+	overflow:hidden;
+}
+div.commentTitleIn{
+	font-size:90%;
+	vertical-align:middle;
+	float:left;
+	padding-top:5px;
+	line-height: 1.4em;
+	margin-right:160px;
+	overflow:hidden;
+}
+div.commentInfo{
+	font-size:90%;
+	vertical-align:middle;
+	text-align:right;
+	color:#999999;
+	margin-top:5px;
+	background-image:url(images/time.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	text-align: right;
+	text-indent: 18px;
+	height:16px;
+	float:right;
+}
+
+.jomauthor
+{
+	
+}
+
+#jc_commentsDiv blockquote
+{
+  color: #747474;
+	background-color:inherit;
+  padding-left: 30px;
+}
+
+#write_comment_title
+{
+	margin-top:14px;
+}
+
+.avatarImg
+{
+	float: right;
+	padding: 2px;
+}
+
+.avatarImg img
+{
+	border:1px solid #ddd
+}
+
+#jc_name, #jc_website, #jc_email, #jc_title, #jc_comment, #jc_password
+{
+	width: 98%;
+	padding: 4px;
+	margin: 0ex;
+}
+
+#jc_name, #jc_website, #jc_email, #jc_password
+{
+	width: 50%;
+}
+
+#jc_commentForm
+{
+    padding-top: 2px;
+    padding-bottom: 6px;
+}
+
+
+#jc_commentForm label
+{
+    padding-top: 6px;
+    padding-bottom: 4px;
+    display: block;
+}
+
+#jc_commentForm button, #jc_captchaImg
+{
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+/* Trackbacks */
+#trackback_link, .feed_link
+{
+	height:16px;
+	vertical-align:middle;
+	text-align:left;
+	cursor:pointer;
+	font-size:90%;
+}
+
+#trackback_link a, .feed_link a
+{
+	border-bottom:dashed 1px #CACACA;
+}
+
+#trackback_link img, .feed_link img
+{
+	vertical-align:middle;
+	padding-right:2px;
+	padding-left:2px;
+}
+
+#write_comment_heading
+{
+	margin-top:20px;
+	margin-bottom:30px;
+}
+
+div.jcTitles{
+font-size:110%;
+font-weight:bold;
+height:28;
+padding:4px;
+margin-bottom: 4px;
+margin-top:4 px;
+color:#6798C7;
+}
+
+.comment_action{
+	background-color:#EEEEEE;
+	border-color:#CCCCCC rgb(153, 153, 153) rgb(153, 153, 153) rgb(204, 204, 204);
+	border-style:solid;
+	border-width:1px;
+	color:#333333;
+	display:-moz-inline-box;
+	font-family:Tahoma,Arial,Helvetica;
+	font-size:100%;
+	margin:1px;
+/*	padding:2px; */
+	vertical-align:middle;
+	white-space:nowrap;
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+
+#jc_commentForm label.subscribe, #jc_commentForm label.agree {
+font-style:normal;
+font-weight:normal;
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install SYSTEM "http://dev.joomla.org/xml/1.5/component-install.dtd">
+<install type="component" version="1.5.0">
+ <name>JomComment</name>
+ <creationDate>2008-09-30</creationDate>
+ <author>AzrulStudio</author>
+ <authorEmail>support@azrul.com</authorEmail>
+ <authorUrl>http://www.azrul.com</authorUrl>
+ <copyright>Copyright 2008 by Slashes &amp; Dots Sdn Bhd. All rights reserved</copyright>
+ <license>License Info</license>
+ <version>3.0.1 Build 561</version>
+ <description>Jom Comment is an advance joomla comment system</description>
+ <installfile>install.jomcomment.php</installfile>
+ <uninstallfile>uninstall.jomcomment.php</uninstallfile>
+ <files>
+		<filename>admin.zip</filename>
+		<filename>sys.zip</filename>
+		<filename>bot.zip</filename>
+		<filename>azrul.zip</filename>
+		<filename>cmslib.zip</filename>
+ </files>
+ 
+ <administration>
+  <menu>Jom Comment</menu>
+  
+  <files>
+		<filename>install.jomcomment.php</filename>
+		<filename>install.sql.php</filename>
+		<filename>uninstall.jomcomment.php</filename>
+		<filename>com.zip</filename>
+  </files>  
+ </administration>
+</install>

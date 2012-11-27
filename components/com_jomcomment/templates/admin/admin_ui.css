@@ -1,0 +1,149 @@
+.clear { /* generic container (i.e. div) for floating buttons */
+    overflow: hidden;
+    width: 100%;
+}
+
+.smallertext {
+	font-size:87%;
+}
+
+a.azbutton {
+    background: transparent url('images/bg_button_a.gif') no-repeat scroll top right;
+    color: #444;
+    display: block;
+    float: left;
+    font: normal 12px arial, sans-serif;
+    height: 24px;
+    margin-right: 6px;
+    padding-right: 18px; /* sliding doors padding */
+    text-decoration: none;
+}
+
+a.azbutton span {
+    background: transparent url('images/bg_button_span.gif') no-repeat;
+    display: block;
+    line-height: 14px;
+    padding: 5px 0 5px 18px;
+}
+
+
+a.azbutton:active {
+    background-position: bottom right;
+    color: #000;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+a.azbutton:active span {
+    background-position: bottom left;
+    padding: 6px 0 4px 18px; /* push text down 1px */
+} 
+
+a.azbutton:hover {
+    background-position: bottom right;
+    color: #000;
+    outline: none; /* hide dotted outline in Firefox */
+}
+
+a.azbutton:hover span {
+    background-position: bottom left;
+    padding: 6px 0 4px 18px; /* push text down 1px */
+} 
+
+/* Top tabbed based navigation */
+#azheadnav {
+background:url('images/tabbg.gif') repeat-x scroll center bottom;
+float:left;
+font-size:93%;
+line-height:normal;
+width:100%;
+margin-bottom:8px;
+}
+
+#azheadnav ul {
+list-style-image:none;
+list-style-position:outside;
+list-style-type:none;
+margin:0pt;
+padding:10px 10px 0pt;
+}
+#azheadnav li {
+background:transparent url('images/left.gif') no-repeat scroll left top;
+float:left;
+margin:0pt;
+padding:0pt 3pt 0pt 9px;
+}
+#azheadnav a {
+background:transparent url('images/right.gif') no-repeat scroll right top;
+color:#002F2F;
+display:block;
+float:left;
+padding:5px 15px 4px 6px;
+text-decoration:none;
+}
+#azheadnav a {
+float:none;
+}
+#azheadnav a:hover{
+color:#000000;
+}
+#azheadnav #current {
+background-image:url('images/left_on.gif');
+}
+#azheadnav #current a {
+background-image:url('images/right_on.gif');
+color:#FFFFFF;
+padding-bottom:5px;
+}
+
+/* composer */
+.floatingdiv{
+	position: fixed;
+	/*padding:8px;*/
+	/*background-color:#919382;*/
+	background-image: url(images/composer_bg.gif);
+	/*opacity:0.6;*/
+}
+
+.floatingdiv-bottom{
+	background-image: url(images/composer_bottom.gif);
+	height:18px;
+	width:100%
+}
+
+
+
+
+#jomcomment #azheadnav {
+	line-height: normal;
+	width: 100%;
+	display: block;
+	height: 24px;
+	margin: 0;
+	padding: 0 0 0 10px;
+	overflow: hidden;
+}
+#jomcomment #azheadnav span a:link,
+#jomcomment #azheadnav span a:visited {
+	font-size: 11px;
+	letter-spacing: 0;
+	line-height: normal;
+	display: block;
+	float: left;
+	text-decoration: none;
+	padding: 5px 15px;
+	margin: 2px 5px -5px 0;
+	text-align: center;
+	background: #d8dfea;
+	border: none;
+	font-weight: normal;
+	letter-spacing: 0;
+}
+#jomcomment #azheadnav span a:hover {
+	background: #e8ecf2;
+}
+#jomcomment #azheadnav span a#current:link,
+#jomcomment #azheadnav span a#current:visited,
+#jomcomment #azheadnav span a#current:hover {
+    background: #3b5998;
+    color: #fff;
+}

@@ -1,0 +1,67 @@
+<?php if ( $debugview ) : ?>
+<link href="comment_style.css" rel="stylesheet" type="text/css" />
+<?php endif; ?>
+
+<?php if ( $comments ) : ?>
+<?php foreach ( $comments as $comment ): ?>
+
+<?php if($comment->hidden) : ?>
+<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>" >
+	<div class="jcEntryInner">
+		<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+		<span class="jc_comment_title"><?php echo $comment->title; ?></span>
+	 	<span class="small" style="margin-left: 20px;">_JC_LOW_VOTE</span>
+		 [<a href="javascript:void(0);" onclick="jax.call('jomcomment', 'jcxShowComment',<?php echo $comment->id; ?>);">_JC_SHOW_LOW_VOTE</a>]
+	</div>
+</div>
+<?php else : ?>
+<div class="<?php echo $comment->style; ?>">
+	<div class="jcEntryInner">
+	    <?php echo $comment->adminPanel; ?>
+		<div class="jcLeft">
+			<?php echo $comment->gravatar; ?>
+			<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+			<div class="commentinfo">
+				<div class="jcUser"><?php echo $comment->name; ?></div>
+				<div class="small"><?php echo $comment->date; ?></div>
+				<div class="small"><?php echo $comment->ip; ?></div>
+				<?php if ( $votes ) : ?>
+				<div>_JC_TPL_DISPLAY_VOTES <span id="cvote-<?PHP echo $comment->id;?>"><?php printf('%+d', $comment->voted);?></span></div>
+
+				<ul class="jc_comment_panel">
+					<li class="jc_comment_panel_up">
+						<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_voteup; ?>" title="Vote up">
+							<img src="images/blank.gif" alt="Report abuse" title="Vote up" height="16" width="16" border="0" />
+						</a>
+					</li>
+					<li class="jc_comment_panel_down">
+						<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_votedown; ?>" title="Vote down">
+							<img src="images/blank.gif" alt="Report abuse" title="Vote down" height="16" width="16" border="0" />
+						</a>
+					</li>
+					<li class="jc_comment_panel_report">
+						<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_report; ?>" title="Report abuse">
+							<img src="images/blank.gif" alt="Report abuse" title="Report abuse" height="16" width="16" border="0" />
+						</a>
+					</li>
+				</ul>
+				<div style="clear: both;"></div>
+
+				<?php endif; ?>
+			</div>
+		</div>
+		<div class="jcContent">
+			
+			<div id="pc_<?php echo $comment->id; ?>">
+			    <span class="jc_comment_title"><?php echo $comment->title; ?></span>
+				<p class="commentstext" id="comment-text-container-<?php echo $comment->id; ?>"><?php echo $comment->comment; ?></p>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div style="clear: both;"></div>
+<?php endif; ?>
+<?php endforeach; ?>
+<?php endif; ?>

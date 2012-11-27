@@ -1,0 +1,20 @@
+<h2>Use Jom Comment with other components</h2>
+<blockquote>
+    <p>Please make sure you have up-to-date backup of all your files. </p>
+</blockquote>
+<table width="960" border="0" cellspacing="0" cellpadding="0" class="mytable">
+    <tr>
+        <th>Component</th>
+        <th>Files to be modified </th>
+        <th>Action</th>
+        <th width="200">Status</th>
+    </tr>
+	<?php foreach($patches as $patch) { ?>
+	<tr>
+        <td><img src="<?= $patch['icon']; ?>" hspace="3" align="absmiddle"><?= $patch['name']; ?> </td>
+        <td><?= $patch['files']; ?></td>
+        <td width="150"><div id="<?= $patch['com']; ?>_action"><?= $patch['action']; ?></div></td>
+        <td width="200"><div id="<?= $patch['com']; ?>_status"><?= $patch['status']; ?></div></td>
+    </tr>
+	<?php } ?>
+</table>

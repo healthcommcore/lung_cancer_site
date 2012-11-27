@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5">
+  <name>Quiz</name>
+  <author>Therese Lung</author>
+  <creationDate>August 2008</creationDate>
+  <copyright>(C) 2008 Therese Lung</copyright>
+  <license>n/a</license>
+  <version>1.0</version>
+  <description>Healthy Directions II Quiz module</description>
+  <files>
+    <filename module="mod_quiz">mod_quiz.php</filename>
+    <filename>mod_quiz.html.php</filename>
+  </files>
+</install>

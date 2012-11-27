@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<view title="Category Recipes">
+		<message>
+		<![CDATA[Shows recipes for a category.]]>
+		</message>
+	</view>
+	<params>
+		<param name="comp_description" type="textarea" default="" label="Category Intro" rows="3" cols="50" description="Recipe list description" />
+		<param name="show_imgintro" type="radio" default="1" label="Show image and intro" description="Show image and intro">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="link_titles" type="radio" default="1" label="Title Linkable" description="If set to Yes, the Title will be linked to the Recipe">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+
+		<param name="webcat" type="list" default="" label="Recipe category" description="Select the recipe category">
+			<option value="">Select Category</option>
+			<option value="Appetizers">Appetizers</option>
+			<option value="Beverages">Beverages</option>
+			<option value="Breakfasts">Breakfasts</option>
+			<option value="Desserts">Desserts</option>
+			<option value="Main Courses">Main Courses</option>
+			<option value="Side Dishes">Side Dishes</option>
+			<option value="Snacks">Snacks</option>
+			<option value="Soups and Salads">Soups and Salads</option>
+		</param>
+	</params>
+
+</metadata>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<view title="Featured Recipes">
+		<message>
+		<![CDATA[Shows featured recipes.]]>
+		</message>
+	</view>
+	<params>
+		<param name="comp_description" type="textarea" default="" label="Page Intro" rows="3" cols="50" description="Recipe list description" />
+		<param name="show_imgintro" type="radio" default="1" label="Show image and intro" description="Show image and intro">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="link_titles" type="radio" default="1" label="Title Linkable" description="If set to Yes, the Title will be linked to the Recipe">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+
+			<param name="show_featured" type="radio" default="1" label="Show all featured" description="Show featured recipes only">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+	</params>
+
+</metadata>

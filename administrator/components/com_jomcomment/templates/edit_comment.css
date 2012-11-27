@@ -1,0 +1,32 @@
+.dropshadowBox{
+	float:left;
+	clear:left;
+	margin: 10px 0 10px 10px !important;
+	margin: 10px 0 10px 5px;
+	width: 500px;
+	padding: 0px;
+	background-image: url(../../../../components/com_jomcomment/images/shadowAlpha.png);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+
+.innerbox{
+	position:relative;
+	bottom:6px;
+	right: 6px;
+	border: 1px solid #999999;
+	padding:4px;
+	margin: 0px 0px 0px 0px;
+	background-color: #EBEBEB;
+}
+
+.innerbox{
+	/* IE5 hack */
+	\margin: 0px 0px -3px 0px;
+	ma\rgin:  0px 0px 0px 0px;
+}
+
+.innerbox p {
+	font-size:14px;
+	margin: 3px;
+}

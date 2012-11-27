@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<install type="module" version="1.5">
+  <name>HD2 Email</name>
+  <author>Therese Lung</author>
+  <creationDate>October 2008</creationDate>
+  <copyright>(C) 2008 Therese Lung</copyright>
+  <version>1.0</version>
+  <description>HD2 Email module</description>
+  <files>
+    <filename module="mod_email">mod_email.php</filename>
+    <filename>mod_email.html.php</filename>
+  </files>
+</install>

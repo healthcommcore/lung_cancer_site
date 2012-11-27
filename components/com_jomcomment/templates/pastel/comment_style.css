@@ -1,0 +1,384 @@
+div.commentBlogView {
+	display:block;
+	text-align: right;
+	padding-top: 6px;
+	padding-bottom: 6px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	clear:both;
+}
+#jcWrapper {
+	width: 99%;
+	margin: 0 auto;
+}
+/*
+ Comment box styling
+ */
+#jcWrapper .jomentry1,
+#jcWrapper .jomentry2 {
+	margin-bottom: 5px;
+	overflow: hidden;
+	padding: 0 5px 0 5px;
+}
+#jcWrapper .jomentry1 {
+	background: #f7f6f6 url(images/jomentry1-bg.gif) repeat-x top left;
+	border: solid 1px #ccc;
+}
+#jcWrapper .jomentry2 {
+	background: #fcfcee url(images/jomentry2-bg.gif) repeat-x top left;
+	border: solid 1px #cfcfb5;
+}
+#jcWrapper .jomauthor {
+    background: #f4f6fd url(images/jomauthor-bg.gif) repeat-x top left;
+	border: solid 2px #369;
+}
+#jcWrapper .jomentry_low {
+	background: #ccc;
+	border: solid 1px #999;
+	margin-bottom: 5px;
+	overflow: hidden;
+	padding: 0 5px 0 5px;
+}
+/*
+ End Comment box styling
+ */
+
+#jcWrapper .jomentry1 blockquote,
+#jcWrapper .jomentry2 blockquote,
+#jcWrapper .jomauthor blockquote {
+	padding: 10px auto 10px auto;
+	margin: 0 10px 10px 10px !important;
+	margin: 0 5px -5px 5px;
+	width: 86%;
+	border-left: 5px solid #ddd;
+	font-size: 1em;
+	float: left;
+}
+
+/* RSS feed link */
+#jcWrapper .jc_rss_link {
+	height: 21px;
+	background: transparent url(images/toolbar.gif) no-repeat 0 -125px;
+	width: 22px;
+	float: right;
+	outline-style: none;
+	display: block;
+	margin: 0 0 5px 0 !important;
+	margin: 0 0 -2px 0;
+	border: 0;
+	text-decoration: none;
+}
+#jcWrapper a.jc_rss_link:link,
+#jcWrapper a.jc_rss_link:visited,
+#jcWrapper a.jc_rss_link:hover {
+	border: 0;
+}
+/* Trackback link */
+#jcWrapper .jc_trackback_link {
+	height: 20px;
+	padding: 0 0 0 20px;
+	background: transparent url(images/toolbar.gif) no-repeat 0 -145px;
+	width: 200px;
+}
+#jcWrapper .jc_low_vote {
+	font-size:11px;
+	color: #999;
+}
+#jcWrapper #jc_num_comment {
+	font-size: 12px;
+}
+/* tools; favourite, share, email and hits */
+#jcWrapper .jctools {
+	float: right;
+	margin-left: 15px;
+	position: inherit;
+}
+/* IE 6 Compatibility mode */
+#jcWrapper .show-comment,
+#jcWrapper .show-linkmore,
+#jcWrapper .show-hit,
+#jcWrapper .jctools,
+#jcWrapper .show-feed,
+#jcWrapper .show-report,
+#jcWrapper .show-voteup,
+#jcWrapper .show-votedown {
+	display: inline;
+	float: right;
+	height: 18px;
+	text-indent: 24px;
+	margin-left: 4px;
+	margin-right: 4px;
+	background-repeat:no-repeat;
+	background-position: 0 50%;
+}
+
+#jcWrapper .jc_title {
+	font-size: 14px;
+	font-weight: 700;
+	color: #585947;
+	border-bottom: dashed 1px #CCCEA9;
+	margin: 15px 0 5px 0;
+}
+
+#jcWrapper .jomentry1 .jc_comment_title {
+	font-size: 1.1em;
+	font-weight: 700;
+	margin: 0 0 5px 0;
+	padding: 3px 0 3px 0;
+	border-bottom: solid 1px #dedede;
+	color: #666;
+}
+#jcWrapper .jomentry2 .jc_comment_title {
+	font-size: 1.1em;
+	font-weight: 700;
+	margin: 0 0 5px 0;
+	padding: 3px 0 3px 0;
+	border-bottom: solid 1px #dedede;
+	color: #996;
+}
+#jcWrapper .jomauthor .jc_comment_title {
+	font-size: 1.1em;
+	font-weight: 700;
+	margin: 0 0 5px 0;
+	padding: 3px 0 3px 0;
+	border-bottom: solid 1px #dedede;
+	color: #369;
+}
+#jcWrapper .jomentry1 .jc_avatar,
+#jcWrapper .jomentry2 .jc_avatar {
+	float: right;
+	padding: 2px;
+	border: solid 1px #8E9067;
+	margin: 0 0 3px 3px;
+}
+#jcWrapper .jomentry1 .jc_comment_text,
+#jcWrapper .jomentry2 .jc_comment_text {
+	font-size: 12px;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+#jcWrapper .jomentry1 .jc_user_details,
+#jcWrapper .jomentry2 .jc_user_details {
+	color: #999;
+	font-size: 0.8em;
+	width: 60%;
+	float: left;
+}
+/* Voting panel */
+#jcWrapper .jc_comment_panel {
+	margin: 0;
+	padding: 0;
+	width: 20%;
+	height: 21px;
+	float: right;
+}
+#jcWrapper .jc_comment_panel li {
+	list-style: none;
+	float: right;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+
+#jcWrapper #jc_commentsDiv .jomentry1 .jc_comment_panel .jc_comment_panel_up a:link,
+#jcWrapper #jc_commentsDiv .jomentry1 .jc_comment_panel .jc_comment_panel_up a:visited,
+#jcWrapper #jc_commentsDiv .jomentry2 .jc_comment_panel .jc_comment_panel_up a:link,
+#jcWrapper #jc_commentsDiv .jomentry2 .jc_comment_panel .jc_comment_panel_up a:visited {
+	width: 21px;
+	height: 18px;
+	display: block;
+	cursor: pointer;
+	background: transparent url(images/votings.gif) no-repeat 0 -20px;
+	text-indent: -9999px;
+	outline: none;
+}
+#jcWrapper #jc_commentsDiv .jomentry1 .jc_comment_panel .jc_comment_panel_up a:hover,
+#jcWrapper #jc_commentsDiv .jomentry2 .jc_comment_panel .jc_comment_panel_up a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0 0;
+}
+#jcWrapper #jc_commentsDiv .jomentry1 .jc_comment_panel .jc_comment_panel_total,
+#jcWrapper #jc_commentsDiv .jomentry2 .jc_comment_panel .jc_comment_panel_total {
+	height: 18px;
+	width: 35px;
+	display: block;
+	color: #999999;
+	text-align: center;
+	font-weight: 700;
+	font-size: 10px;
+	line-height: 17px;
+	background: transparent url(images/votings.gif) no-repeat 0 -125px;
+}
+#jcWrapper .jomentry1 .jc_comment_panel .jc_comment_panel_down a:link,
+#jcWrapper .jomentry1 .jc_comment_panel .jc_comment_panel_down a:visited,
+#jcWrapper .jomentry2 .jc_comment_panel .jc_comment_panel_down a:link,
+#jcWrapper .jomentry2 .jc_comment_panel .jc_comment_panel_down a:visited {
+	width: 19px;
+	height: 18px;
+	display: block;
+	cursor: pointer;
+	text-indent: -9999px;
+	background: transparent url(images/votings.gif) no-repeat 0 -62px;
+	outline: none;
+}
+#jcWrapper .jomentry1 .jc_comment_panel .jc_comment_panel_down a:hover,
+#jcWrapper .jomentry2 .jc_comment_panel .jc_comment_panel_down a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0 -42px;
+}
+#jcWrapper .jomentry1 .jc_comment_panel .jc_comment_panel_report a:link,
+#jcWrapper .jomentry1 .jc_comment_panel .jc_comment_panel_report a:visited,
+#jcWrapper .jomentry2 .jc_comment_panel .jc_comment_panel_report a:link,
+#jcWrapper .jomentry2 .jc_comment_panel .jc_comment_panel_report a:visited {
+	width: 20px;
+	height: 18px;
+	display: block;
+	text-indent: -9999px;
+	cursor: pointer;
+	background: transparent url(images/votings.gif) no-repeat 0 -103px;
+	outline: none;
+}
+#jcWrapper .jomentry2 .jc_comment_panel .jc_comment_panel_report a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0px -84px;
+}
+
+#jcWrapper .jc_bottom_container {
+    border-top: 1px solid #dedede;
+    padding: 5px 0 0 0 !important;
+    padding: 2px 0 0 0;
+    margin: 0 0 2px 0;
+}
+
+
+
+#jcWrapper .jc_clear {
+	clear: both;
+}
+#jcWrapper .jc_show_form_notice {
+	clear: both;
+	background: transparent url(images/max.gif) no-repeat left;
+	height: 12px;
+	padding-left: 15px;
+	cursor: pointer;
+}
+
+/* comment form */
+#jcWrapper #jc_commentFormDiv {
+	margin: 0 auto 0 auto;
+}
+#jcWrapper #jc_commentFormContainer {
+	width: 98%;
+	margin: 0 auto 0 auto;
+}
+#jcWrapper #jc_commentFormContainer .jc_inputbox {
+	background: transparent url(images/inputbox-bg.gif) repeat-x top left;
+	border: solid 1px #ccc;
+	padding: 4px;
+	margin: 0 0 5px 0;
+	color: #666;
+	width: 98%;
+}
+#jcWrapper #jc_commentFormContainer .jc_optionbox {
+	background: transparent url(images/inputbox-bg.gif) repeat-x top left;
+	border: solid 1px #ccc;
+	padding: 10px;
+	margin: 0 0 5px 0;
+	color: #666;
+}
+#jcWrapper #jc_commentFormContainer .jc_inputbox:focus,
+#jcWrapper #jc_commentFormContainer .jc_inputbox:hover,
+#jcWrapper #jc_commentFormContainer .jc_inputbox_hover {
+    border: solid 1px #999;
+}
+#jcWrapper #jc_comment {
+	width: 98%;
+}
+#jcWrapper #jc_commentFormDiv label {
+	font-size: 11px;
+	font-style: italic;
+}
+/* Resize textarea */
+#jcWrapper #jc_commentFormDiv .jc_comment_resize {
+	font-size: 10px;
+	color: #ccc;
+	cursor: pointer;
+	text-align: right;
+	margin: -3px 0 10px 0;
+	width: 100px;
+	float: right;
+}
+#jcWrapper #jc_commentFormDiv label.subscribe,
+#jcWrapper #jc_commentFormDiv label.agree {
+	font-size: inherit;
+ 	font-style: normal;
+}
+#jcWrapper #jc_commentFormContainer .jc_captcha {
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+	color: #999;
+	letter-spacing: 3px;
+}
+/* override default styling */
+#jcWrapper .jcAdminPanel {
+	background: #ccc;
+	border: 1px solid #999;
+	display: block;
+	padding: 4px;
+	right: 0px;
+	text-align: right;
+	top: 0px;
+	width: auto;
+	margin: 0 0 5px 0;
+}
+#jcWrapper .jcAdminPanel a.jcAdminPanel_edit:link,
+#jcWrapper .jcAdminPanel ajcAdminPanel_edit:visited,
+#jcWrapper .jcAdminPanel a.jcAdminPanel_unpublished:link,
+#jcWrapper .jcAdminPanel ajcAdminPanel_unpublished:visited {
+	color: #930;
+	text-decoration: none;
+}
+#jcWrapper .jcAdminPanel ajcAdminPanel_edit:hover,
+#jcWrapper .jcAdminPanel ajcAdminPanel_unpublished:hover {
+	color: #c60;
+	text-decoration: underline;
+}
+
+/* For IE Only */
+#jcWrapper div.show-comment {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -71px;
+}
+
+#jcWrapper div.show-linkmore {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -90px;
+}
+
+#jcWrapper div.show-hit {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -35px;
+}
+
+/* More specific rule for other browser 
+#jcWrapper div.commentBlogView > div.show-comment {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -71px;
+}
+
+#jcWrapper div.commentBlogView > div.show-linkmore {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -90px;
+}
+#jcWrapper div.commentBlogView > div.show-hit{
+	background: transparent url(images/toolbar.gif) no-repeat 0 -35px;
+}*/
+#jcWrapper div.show-feed {
+	width: 18px;
+	background-image:none;
+}
+#jcWrapper div.jcfav {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -54px;
+}
+#jcWrapper div.jcshare {
+	background: transparent url(images/toolbar.gif) no-repeat 0 1px;
+}
+#jcWrapper div.jcemail {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -16px;
+}
+#jcWrapper div.jcpreview {
+	background: transparent url(images/toolbar.gif) no-repeat -18px -36px;
+}

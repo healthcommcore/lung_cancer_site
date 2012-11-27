@@ -1,0 +1,39 @@
+<div id="jc_comment_bbcode">
+	<?php if($enableBBCode): ?>
+		<a href="javascript:void(0);" tabindex="-1" onclick="jc_encloseText('[b]', '[/b]', jax.$('jc_comment')); return false;" class="jc_bb_item">
+			<img src="<?php echo $path;?>/images/blank.gif" alt="bold"   border="0" width="18" height="22" class="jc_bb_bold" />
+		</a>
+
+		<a href="javascript:void(0);" tabindex="-1" onclick="jc_encloseText('[i]', '[/i]', jax.$('jc_comment')); return false;" class="jc_bb_item">
+			<img src="<?php echo $path;?>/images/blank.gif" alt="italicize"  border="0" width="18" height="22" class="jc_bb_italic" />
+		</a>
+
+		<a href="javascript:void(0);" tabindex="-1" onclick="jc_encloseText('[u]', '[/u]', jax.$('jc_comment')); return false;" class="jc_bb_item">
+			<img src="<?php echo $path;?>/images/blank.gif" alt="underline" border="0" width="18" height="22" class="jc_bb_underline" />
+		</a>
+
+		<a href="javascript:void(0);" tabindex="-1" onclick="jc_encloseText('[s]', '[/s]', jax.$('jc_comment')); return false;" class="jc_bb_item">
+			<img src="<?php echo $path;?>/images/blank.gif" alt="strike" border="0" width="18" height="22" class="jc_bb_strike" />
+		</a>
+
+		<a href="javascript:void(0);" tabindex="-1" onclick="jc_encloseText('[url]', '[/url]', jax.$('jc_comment')); return false;" class="jc_bb_item">
+			<img src="<?php echo $path;?>/images/blank.gif" alt="url" border="0" width="18" height="22" class="jc_bb_url" /></a>
+
+		<a href="javascript:void(0);" tabindex="-1" onclick="jc_encloseText('[img]', '[/img]', jax.$('jc_comment')); return false;" class="jc_bb_item">
+			<img src="<?php echo $path;?>/images/blank.gif" alt="image"  border="0" width="18" height="22" class="jc_bb_image" />
+		</a>
+
+		<a href="javascript:void(0);" tabindex="-1" onclick="jc_encloseText('[quote]', '[/quote]', jax.$('jc_comment')); return false;" class="jc_bb_item">
+			<img src="<?php echo $path;?>/images/blank.gif" alt="quote"  border="0" width="18" height="22" class="jc_bb_quote" />
+		</a>
+	<?php endif; ?>
+	<?php if($enableSmilies): ?>
+		<span class="bb_seperator"></span>
+    	<?php foreach($smilies as $key => $value){ ?>
+		<a href="javascript:void(0);" tabindex="-1" onclick="jc_addText('<?php echo $key;?>', 'jc_comment'); return false;" class="jc_bb_item">
+			<img src="<?php echo $path;?>/images/blank.gif" alt="<?php echo $smiliesAlt[$key];?>" title="<?php echo $smiliesAlt[$key];?>" border="0" width="18" height="22" class="jc_bb_<?php echo $smiliesAlt[$key];?>" />
+		</a>
+		<?php } ?>
+	<?php endif; ?>
+
+</div>

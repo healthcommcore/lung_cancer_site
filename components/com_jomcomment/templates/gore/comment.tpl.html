@@ -1,0 +1,59 @@
+<?php if($debugview):?>
+<link href="comment_style.css" rel="stylesheet" type="text/css" />
+<?php endif;?>
+
+<?php if($comments) foreach($comments as $comment): ?>
+<?php
+if($comment->hidden) {
+// a lowly rated comment will be slightly hidden,
+?>
+<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>">
+	<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+	<b><?php echo $comment->title; ?></b><i>, _JC_LOW_VOTE</i> [<a href="javascript:void(0);" onclick="jax.call('jomcomment', 'jcxShowComment',<?php echo $comment->id; ?>);">_JC_SHOW_LOW_VOTE</a>]
+</div>
+<?php } else{?>
+	<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>" >
+		<div class="top">
+			<?php echo $comment->adminPanel; ?>
+			<div class="top2"><strong><?php echo $comment->name; ?></strong> wrote on <span class="formatDate"><?php echo $comment->date; ?></span></div>
+		</div>
+		<div class="bottom">
+			<table width="100%" border="0" cellspacing="0" cellpadding="2">
+				<tr>
+					<td valign="top" width="5%">
+						<?php if($comment->gravatar) { ?>
+							<div class="top1"><?php echo $comment->gravatar; ?></div>
+						<?php } else { ?>
+							&nbsp;
+						<?php } ?>
+					</td>
+					<td valign="top">
+						<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+						<div class="title">Title: <?php echo $comment->title; ?></div>
+						<div class="bCommentText"><?php echo $comment->comment; ?></div>
+						<?php if($votes){ ?>
+							<div class="show-report" onclick="<?php echo $comment->onclick_report; ?>">_JC_TPL_ABUSE_REPORT</div>
+							<div class="show-votedown" onclick="<?php echo $comment->onclick_votedown; ?>">_JC_TPL_DOWN_VOTE</div>
+							<div class="show-voteup" onclick="<?php echo $comment->onclick_voteup; ?>">_JC_TPL_UP_VOTE</div>
+						<?php } ?>
+						<div class="bottom1">
+							<span class="formatURL">
+								<?php if($comment->website): ?>
+									<a href="<?php echo $comment->website; ?>" rel="nofollow" target="_blank">website</a>
+								<?php endif;?>
+							</span><br />
+							<?php if($votes){ ?>
+							<div align="right">
+								_JC_TPL_DISPLAY_VOTES
+								<span id="cvote-<?php echo $comment->id;?>">
+									<?php printf('%+d',$comment->voted);?>
+								</span>
+							</div>
+							<?php } ?>
+						</div>
+    				</td>
+  				</tr>
+			</table>
+		</div>
+	</div>
+<?php } endforeach; ?>

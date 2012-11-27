@@ -1,0 +1,70 @@
+<?php if($debugview):?>
+<link href="comment_style.css" rel="stylesheet" type="text/css" />
+<?php endif;?>
+<script type="text/javascript" language="javascript">
+/* <![CDATA[ */
+// Toggle show comment
+function jcToggleShowComment(nCommentID){
+	// Get item
+	var cItem = document.getElementById(nCommentID);
+	// Validate
+	if (cItem){
+		if (cItem.style.display != "none"){
+			cItem.style.display = "none";
+		}
+		else{
+			cItem.style.display = "";
+		}
+	}
+}
+/* ]]> */
+</script>
+<?php 
+$count = 0;
+if($comments) foreach($comments as $comment): ?>
+	<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>" >
+	<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+	<div class="commentTitle" onmouseover="this.style.backgroundColor='#DFF4FA';" onmouseout="this.style.backgroundColor='<?php if($count&1) echo '#FAFDFD'; else echo '#ECF2F8'; ?>';">
+			<div class="commentTitleIn" >
+			<a href="javascript:jcToggleShowComment('hs_<?php echo $comment->id; ?>')">
+			<?php echo substr(strip_tags($comment->title . ", " .$comment->comment), 0, 56 ); ?>
+			</a>
+		</div>
+		
+		<div class="commentInfo"><?php echo $comment->date; ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	</div>
+	<div style="display:none" id="hs_<?php echo $comment->id; ?>">
+		<table width="100%" cellpadding="0" cellspacing="0">
+		    <tr>
+		        <td width="100%"  valign="top">
+					<div class="comment-text" id="comment-text-container-<?php echo $comment->id; ?>">
+						<?php echo $comment->comment; ?>
+					</div>
+				</td>
+		        <td valign="top"><?php echo $comment->gravatar; ?></td>
+		    </tr>
+		    <tr>
+		        <td colspan="2">
+				  <div style="font-size:95%; text-align:right"><?php echo $comment->name; ?>&nbsp;|&nbsp;<?php echo $comment->ip; ?><br />
+	<?php if($votes){ ?>
+		<div class="show-report" onclick="<?php echo $comment->onclick_report; ?>">_JC_TPL_ABUSE_REPORT</div>
+		<div class="show-votedown" onclick="<?php echo $comment->onclick_votedown; ?>">_JC_TPL_DOWN_VOTE</div>
+		<div class="show-voteup" onclick="<?php echo $comment->onclick_voteup; ?>">_JC_TPL_UP_VOTE</div>
+		<br />
+	<?php } ?>
+				<?PHP
+					if($votes){
+				?>
+					_JC_TPL_DISPLAY_VOTES <span id="cvote-<?PHP echo $comment->id;?>"><?php printf('%+d', $comment->voted);?></span>
+				<?PHP
+					}
+				?>
+						</div>
+						<div style="clear:both;"></div>
+		        </td>
+		    </tr>
+		</table>
+	</div>
+</div> 
+<?php $count++;
+endforeach; ?>

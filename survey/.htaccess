@@ -1,0 +1,5 @@
+AuthName "admin"
+AuthType Basic
+AuthUserFile /var/www/help.trackmychanges.org/ptrack/adminusers
+require valid-user
+php_value  max_execution_time 30

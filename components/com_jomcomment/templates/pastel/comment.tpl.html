@@ -1,0 +1,72 @@
+<?php if($debugview):?>
+<link href="comment_style.css" rel="stylesheet" type="text/css" />
+<?php endif; ?>
+<?php
+if( $comments ) {
+    foreach ( $comments as $comment ):
+
+        if ( $comment->hidden ) {
+// a lowly rated comment will be slightly hidden,
+?>
+<div class="<?php echo $comment->style; ?>" id="pc_<?php echo $comment->id; ?>" >
+<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+	<span class="jc_comment_title"><?php echo $comment->title; ?></span>
+	<span class="jc_low_vote">, _JC_LOW_VOTE</span> [<a href="javascript:void(0);" onclick="jax.call('jomcomment', 'jcxShowComment',<?php echo $comment->id; ?>);">_JC_SHOW_LOW_VOTE</a>]
+</div>
+<?php
+	 	}
+        else {
+?>
+<div id="pc_<?php echo $comment->id; ?>" class="<?php echo $comment->style; ?>">
+	<a name="comment-<?php echo $comment->id;?>" id="comment-<?php echo $comment->id;?>"></a>
+    <h5 class="jc_comment_title"><?php echo $comment->title; ?></h5>
+	<?php echo $comment->adminPanel; ?>
+	
+	<div class="jc_avatar"><?php echo $comment->gravatar; ?></div>
+	
+	
+    <div class="jc_comment_text" id="comment-text-container-<?php echo $comment->id; ?>">
+    	<?php echo $comment->comment; ?>
+    </div>
+	
+	<div class="jc_clear"></div>
+	<div class="jc_bottom_container">
+	<div class="jc_user_details">
+    	<span class="jc_comment_author">
+			<?php echo $comment->name; ?>
+		</span>, 
+        <span class="jc_comment_date"><?php echo $comment->date; ?></span>
+        <?php if ( $comment->website ): ?> | <span class="jc_comment_author_url"><a href="<?php echo $comment->website; ?>" rel="nofollow" target="_blank"> url </a></span>
+        <?php endif; ?>
+    </div>
+	
+	<?php if($votes){ ?>
+    <ul class="jc_comment_panel">
+		<li class="jc_comment_panel_report">
+			<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_report; ?>" title="_JC_TPL_ABUSE_REPORT">
+				<img src="images/blank.gif" alt="_JC_TPL_ABUSE_REPORT" title="_JC_TPL_ABUSE_REPORT" height="14" width="14" border="0" />
+			</a>
+		</li>
+        <li class="jc_comment_panel_total" id="cvote-<?php echo $comment->id;?>"><?php printf('%+d',$comment->voted); ?></li>
+		<li class="jc_comment_panel_down">
+			<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_votedown; ?>" title="_JC_TPL_DOWN_VOTE">
+				<img src="images/blank.gif" alt="_JC_TPL_DOWN_VOTE" title="_JC_TPL_DOWN_VOTE" height="14" width="14" border="0" />
+			</a>
+		</li>
+		<li class="jc_comment_panel_up">
+			<a href="javascript:void(0);" onclick="<?php echo $comment->onclick_voteup; ?>" title="_JC_TPL_UP_VOTE">
+				<img src="images/blank.gif" alt="_JC_TPL_UP_VOTE" title="_JC_TPL_UP_VOTE" height="14" width="14" border="0" />
+			</a>
+		</li>
+    </ul>
+    <?php } ?>
+    </div>
+	
+	
+    <div class="jc_clear"></div>
+</div>
+<?php
+        }
+    endforeach;
+}
+?>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="content">
+  <name>Jom Comment</name>
+  <author>Azrul</author>
+  <creationDate>04.11.2007</creationDate>
+  <copyright>Copyright 2006 by Azrul. All rights reserved!</copyright>
+  <license>Copyrighted </license>
+  <authorEmail>azrul@pocketcraft.com</authorEmail>
+  <authorUrl>http://www.azrul.com</authorUrl>
+  <version>2.0</version>
+  <description>Ajax Comment System</description>
+  <files>
+    <filename mambot="jom_comment_bot">jom_comment_bot.php</filename>    
+  </files>
+  <install>
+    <queries>
+    </queries>
+  </install>
+  <params></params>
+</install>

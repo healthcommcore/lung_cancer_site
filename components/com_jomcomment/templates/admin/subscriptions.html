@@ -1,0 +1,53 @@
+<!-- some header stuff -->
+<?PHP
+$cms    =& cmsInstance('CMSCore');
+$cms->load('helper','url');
+?>
+<div id="jomcomment">
+<link href="<?php echo $cms->get_path('live'); ?>/components/com_jomcomment/templates/admin/admin.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="<?php echo $cms->get_path('live'); ?>/components/com_jomcomment/templates/admin/admin_ui.css" type="text/css" media="screen" />
+<div class="componentheading">My Comment Subscriptions</div><br />
+<?php
+global $mainframe;
+
+$html = new CMSHtml();
+$links  = array(
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=mycomments&Itemid=' . $jcitemid),
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=mysubscriptions&Itemid=' . $jcitemid),
+					cmsSefAmpReplace('index.php?option=com_jomcomment&task=myfavorites&Itemid=' . $jcitemid)
+				);
+$captions   = array('My Comments','Comment Subscriptions','Favorite Entry');
+
+echo $html->show_tabbed_nav($links, $captions, 1);
+?>
+
+<!--
+<div style="margin-top:8px">
+<a class="azbutton" onclick="show_dashboard();" href="javascript:void(0);"><span>Approve all</span></a>
+<a class="azbutton" onclick="show_dashboard();" href="javascript:void(0);"><span>Remove unpublished</span></a>
+</div>-->
+<div style="clear:both"></div>
+<?php
+$cms =	&cmsInstance('CMSCore');
+$cms->load('libraries', 'table');
+
+if($subscriptions){
+	$cms->table->clear();
+	$cms->table->set_heading('&nbsp;', 'Content Title', '&nbsp;');
+
+	foreach($subscriptions as $row){
+		$action = '[ <a href="javascript:void(0);" onclick="jax.call(\'jomcomment\',\'jcxUnsubscribe\',\'' . $row->id . '\');">unsubscribe</a> | ' . $row->subStatus . ' ]';
+
+		$row->title = '<a href="'.$row->parentLink.'" >'.$row->title.'</a><br />';
+		$row->title   .= '<span class="smalltext">' . $row->total . ' Replies, Last replied by ' . $row->lastreply .'</span>';
+		$cms->table->add_row('&nbsp;' , $row->title, $action);
+	}
+
+	echo $cms->table->generate();
+	echo $pagination;
+} else {
+	echo "No subscribed comments.";
+}
+?>
+
+</div>

@@ -1,0 +1,213 @@
+#jc_commentsDiv {
+	overflow: hidden;
+}
+.jomentry1,
+.jomentry2 {
+	border-top: dotted 1px #ccc;
+	width: 100%;
+	float: left;
+	display: block;
+	margin: 0;
+}
+.jomentry1:hover,
+.jomentry2:hover {
+	background: #EEF5F9;
+}
+.jcEntryInner {
+    padding: 10px;
+}
+.jcLeft {
+	width: 180px;
+	float: left;
+	display: block;
+	background: transparent;
+}
+.jcContent {
+	margin: 0 0 0 190px;
+	background: transparent;
+}
+.postresponse {
+	border-top: dotted 1px #ccc;
+	margin: 10px 0 0 0;
+}
+
+.jcUser {
+	color: #369;
+	font-weight: bold;
+}
+.avatarImg img {
+	padding: 2px;
+	border: dotted 1px #369;
+}
+#jcCommentFormWrap {
+	padding: 10px 20px;
+	background: #EEF5F9;
+	border: dotted 1px #369;
+}
+.submitbutton {
+	border: solid 1px #ccc;
+	border-top: solid 1px #f4f4f4;
+	border-left: solid 1px #f4f4f4;
+	padding: 3px 10px;
+	background: #efefef;
+	cursor: pointer;
+}
+.submitbutton:hover {
+	border: solid 1px #ccc;
+}
+
+/* Trackbacks */
+#trackback_link, .feed_link {
+	height: 16px;
+	vertical-align: middle;
+	text-align: left;
+	cursor: pointer;
+	font-size: 90%;
+	margin-bottom: 20px;
+}
+#trackback_link a, .feed_link a {
+	border: none;
+}
+#trackback_link img, .feed_link img {
+	vertical-align: middle;
+	padding-right: 2px;
+	padding-left: 2px;
+}
+#written_comments_title {
+	margin: 0 0 10px;
+}
+
+
+/* Voting Panel */
+#jc_commentsDiv .jc_comment_panel {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 16px;
+}
+#jc_commentsDiv .jc_comment_panel li {
+	list-style: none;
+	float: left;
+	background: none;
+	margin: 0 3px 0 0;
+	display: block;
+	width: 16px;
+}
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_up a:link,
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_up a:visited {
+	height: 18px;
+	display: block;
+	cursor: pointer;
+	background: transparent url(images/votings.gif) no-repeat 0 2px;
+}
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_up a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0 -16px;
+}
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_down a:link,
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_down a:visited {
+	height: 16px;
+	display: block;
+	cursor: pointer;
+	background: transparent url(images/votings.gif) no-repeat 0 -34px;
+}
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_down a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0 -52px;
+}
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_report a:link,
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_report a:visited {
+	height: 16px;
+	display: block;
+	cursor: pointer;
+	background: transparent url(images/votings.gif) no-repeat 0 -71px;
+}
+#jc_commentsDiv .jc_comment_panel .jc_comment_panel_report a:hover {
+	background: transparent url(images/votings.gif) no-repeat 0px -89px;
+}
+/* Voting Panel */
+
+
+
+/* Sharing Toolbar Styling */
+div.commentTools {
+	display: block;
+	float: right;
+}
+/* IE 6 Compatibility mode */
+.show-comment, .show-linkmore, .show-hit, .jctools,
+.show-feed, .show-report, .show-voteup, .show-votedown{
+	display:inline;
+	float:right;
+	height:18px;
+	text-indent: 24px;
+	margin-left: 4px;
+	margin-right: 4px;
+	background-repeat:no-repeat;
+	background-position: 0 50%;
+}
+div.commentBlogView > div.show-comment,
+div.commentBlogView > div.show-linkmore,
+div.commentBlogView > div.show-hit,
+div.jctools, div.show-feed, div.show-report,
+div.show-voteup, div.show-votedown{
+	display:inline;
+	float:right;
+	height:18px;
+	text-indent: 24px;
+	margin-left: 4px;
+	margin-right: 4px;
+	background-repeat:no-repeat;
+	background-position: 0 50%;
+}
+div.show-result{
+	display: none;
+	float:right;
+	height:18px;
+	text-indent: 24px;
+	margin-left: 4px;
+	margin-right: 4px;
+}
+/* For IE Only */
+div.show-comment {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -71px;
+}
+
+div.show-linkmore {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -90px;
+}
+
+div.show-hit {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -35px;
+}
+
+/* More specific rule for other browser */
+div.commentBlogView > div.show-comment {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -71px;
+}
+
+div.commentBlogView > div.show-linkmore {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -90px;
+}
+div.commentBlogView > div.show-hit{
+	background: transparent url(images/toolbar.gif) no-repeat 0 -35px;
+}
+div.show-feed {
+	width: 18px;
+	background-image:none;
+}
+div.jcfav {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -54px;
+}
+div.jcshare {
+	background: transparent url(images/toolbar.gif) no-repeat 0 1px;
+}
+div.jcemail {
+	background: transparent url(images/toolbar.gif) no-repeat 0 -16px;
+}
+div.jcpreview {
+	background: transparent url(images/toolbar.gif) no-repeat -18px -36px;
+}
+/* Sharing Toolbar Styling */
+
+#jc_comment_bbcode {
+
+}

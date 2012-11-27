@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<install type="module" version="1.5">
+  <name>Login Text</name>
+  <author>Therese Lung</author>
+  <creationDate>November 2008</creationDate>
+  <copyright>(C) 2008 Therese Lung</copyright>
+  <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+  <version>1.0</version>
+  <description>Healthy Directions II Login Text module</description>
+  <files>
+    <filename module="mod_logintext">mod_logintext.php</filename>
+  </files>
+	<params>
+		<param name="article_id" type="text" default="" label="Article Id" description="ARTICLEID" />
+	</params>  
+</install>

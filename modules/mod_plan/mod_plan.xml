@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<install type="module" version="1.5">
+  <name>Plan</name>
+  <author>Therese Lung</author>
+  <creationDate>October 2008</creationDate>
+  <copyright>(C) 2007 Therese Lung</copyright>
+  <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+  <version>1.0</version>
+  <description>Healthy Directions II Plan module</description>
+  <files>
+    <filename module="mod_plan">mod_plan.php</filename>
+    <filename>mod_plan.html.php</filename>
+  </files>
+</install>
