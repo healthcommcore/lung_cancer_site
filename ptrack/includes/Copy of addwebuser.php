@@ -205,7 +205,7 @@ function registerUser( $db, $fname, $username, $email, $password) {
 		if (!$resultID) {
 			// db inconsistency -
 			$msg = 'Database Internal consistency error inserting core_acl_ro: ' . mysql_error($db);
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 			return array( 0=> 0, 1=> $msg);
 		}
 		else {
@@ -217,7 +217,7 @@ function registerUser( $db, $fname, $username, $email, $password) {
 			$resultID=mysql_query($sql,$db);
 			if (!$resultID) {
 				$msg = 'Database Internal consistency error inserting core_acl_aro_map: ' . mysql_error($db);
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 				return array( 0=> 0, 1=> $msg);
 			}
 	
@@ -246,7 +246,7 @@ function updateUser( $userMsqlDB, $joomlaID, $fname, $username, $email, $passwor
 	$resultID=mysql_query($sql,$userMsqlDB);
 	if (!$resultID) {
 			$msg = "Database error updating user information: " . mysql_error($userMsqlDB);
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 			return array( 0=> 0, 1=> $msg);
 	}
 	
@@ -310,7 +310,7 @@ global $FromEmail;
 		if (!$resultID) {
 			// db error
 			$msg = 'Database select error: ' . mysql_error($userMsqlDB);
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 			mysql_close($userMsqlDB);
 			return array( 0=> 0, 1=> $msg);
 		}
@@ -327,7 +327,7 @@ global $FromEmail;
 				$msg = 'User registration warning: the username or email already exists for ' . $email . ' - change to update mode';
 				notifyErrorAdmin($msg);
 
-				error_log( "\n". date("Y-m-d H:i:s ") .  $msg , 3, '/var/www/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") .  $msg , 3, '/var/www/html/logs/hd2/hd2.log');
 				
 				// Go into update mode to recover from error 
 				$createflag = false;
@@ -359,7 +359,7 @@ global $FromEmail;
 		$joomlaID = checkUserInfo( $userMsqlDB, $studyID);
 		if ($joomlaID == 0 ) {
 				$msg = "Database Internal consistency error, this user does not exist in userInfo for studyID $studyID";
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 				mysql_close($userMsqlDB);
 				return array( 0=> 0, 1=> $msg);
 		}
@@ -368,7 +368,7 @@ global $FromEmail;
 		$statusArray = updateUser($userMsqlDB,  $joomlaID, $fname, $email, $email, $password, $status );
 		if (! $statusArray[0] ) {
 			$msg =  'Error updating Joomla user information: '.$statusArray[1] ;
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 			mysql_close($userMsqlDB);
 			return array( 0=> 0, 1=> $msg);
 		
@@ -392,7 +392,7 @@ global $FromEmail;
 		else {
 			// Error registering new user
 			$msg = 'Web site user registration error (please contact HCC) : '.$statusArray[1] ;
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 			mysql_close($userMsqlDB);
 			return array( 0=> 0, 1=> $msg);
 		}
@@ -412,7 +412,7 @@ global $FromEmail;
 		if (mysql_num_rows($result)> 1) {
 			// Internal consistency error
 				$msg = "Database Internal consistency error, too many userInfo entries for joomlaID $joomlaID or studyID $studyID";
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 				mysql_close($userMsqlDB);
 				return array( 0=> 0, 1=> $msg);
 		}
@@ -429,7 +429,7 @@ global $FromEmail;
 				notifyErrorAdmin($msg);
 
 
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 				$msg = 'User registration warning: please SAVE the record again';
 				return array( 0=> 0, 1=> $msg);
 			}
@@ -438,7 +438,7 @@ global $FromEmail;
 	}
 	else {
 		$msg = 'Database select error: ' . mysql_error($userMsqlDB);
-		error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+		error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 		$statusArray[0] = 0;
 		return array( 0=> 0, 1=> $msg);
 	}
@@ -457,7 +457,7 @@ global $FromEmail;
 
 				if ( $status != 1) {
 					$msg = 'Error: Unable to send welcome email to: ' . $email;
-					error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+					error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 					$statusArray[0] = 2;
 				}
 				else {
@@ -467,7 +467,7 @@ global $FromEmail;
 			else if ($statusArray[0] == 0 ) {
 				// Error initializing userInfo
 				$msg = 'Database error initializing user information : '.$statusArray[1] ;
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 				$statusArray[0] = 0;
 			}
 	}
@@ -492,7 +492,7 @@ global $FromEmail;
 				else {
 					// error_reporting($old_level);
 					$msg = "Database error updating user information userInfo: " . mysql_error($userMsqlDB);
-					error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/logs/hd2/hd2.log');
+					error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
 					mysql_close($userMsqlDB);
 					return array( 0=> 0, 1=> $msg);
 				}

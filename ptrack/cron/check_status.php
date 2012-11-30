@@ -5,7 +5,7 @@
 //	2. All pts who have "A" status should not have any above
 //	
 // LOAD mySQL FUNCTIONS
-include("/var/www/lung_cancer_site/ptrack/includes/connection.php");
+include("/var/www/html/lung_cancer_site/ptrack/includes/connection.php");
 // CONNECT TO DATABASE
 if ($mysqlID=dbConnect()) {
     selectDatabase("lung_cancer_user");
@@ -20,7 +20,7 @@ $change_to_inactive = array();
 $upd_act_errs = array();
 $upd_act_succ = array();
 // declare path
-$resultLogsPath = '/var/www/logs/hd2/'; 
+$resultLogsPath = '/var/www/html/logs/hd2/'; 
 
 // check the pts that has status = 'I'
 echo "checking pt with inactive status<br>";

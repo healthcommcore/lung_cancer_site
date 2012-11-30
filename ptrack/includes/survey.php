@@ -916,7 +916,7 @@ global $behaviorSpecs;
 		if (! $result) {
 			// Error updating TFR mailed field
 				// error db
-				error_log( "\n". date("Y-m-d H:i:s ") .  'Error, unable to insert TFR mailed information :' . ": %s\n",mysql_error( $surveyDB), 3, '/var/www/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") .  'Error, unable to insert TFR mailed information :' . ": %s\n",mysql_error( $surveyDB), 3, '/var/www/html/logs/hd2/hd2.log');
 				printf( 'Error, unable to insert TFR mailed information :' . ": %s\n",mysql_error( $surveyDB));
 		}
 	}

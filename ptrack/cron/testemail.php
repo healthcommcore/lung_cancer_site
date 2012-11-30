@@ -12,10 +12,10 @@ $headers = "From: Me <me@email.com>";//put you own stuff here or use a variable
 $to = 'therese_lung@dfci.harvard.edu';// same as above
 // $to = 'theresel1@yahoo.com';// same as above
 $subject = 'Testing Inline attachment HTML Emails';//your own stuff goes here
-$html ="<img src='/var/www/help.trackmychanges.org/images/hd2/tracking/weekIMG1.gif'><br /><br />
+$html ="<img src='/var/www/html/help.trackmychanges.org/images/hd2/tracking/weekIMG1.gif'><br /><br />
 <b>This</b> is HTML <span style='background:cyan'>and this is a cyan highlight</span>
 <br />So this should be a new line.<br /><br />This should be a new line with a space between the above.
-<br />Here's dead Al<br><img src='/var/www/help.trackmychanges.org/images/hd2/tracking/weekIMG2.gif'><br />He is dead in this photo!<br />This is a martyr, well
+<br />Here's dead Al<br><img src='/var/www/html/help.trackmychanges.org/images/hd2/tracking/weekIMG2.gif'><br />He is dead in this photo!<br />This is a martyr, well
 OK then I think I will pass on looking like that all blowed up and all.<br /><br />So much for being a martyr!<br /> He's just another dead terrorist in the pile of the others ... ougggh nooooo!";//make up your own html or use an include
 //the below is your own plain text message (all the $message(x))
 $message0 = 'Dear valued customer,';// or make up your own for plain text message

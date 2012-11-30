@@ -4,14 +4,14 @@ set_time_limit($limit);
 $start = time();
 $today = date('Y-m-d');
 //--> Connection Info 
-$checkfile = '/var/www/hvma/CadenceAppt.txt'; // data import file gets placed in folder via FTP
-//$checkfile = '/var/www/hvma/test1.txt'; test for bug fixing
+$checkfile = '/var/www/html/hvma/CadenceAppt.txt'; // data import file gets placed in folder via FTP
+//$checkfile = '/var/www/html/hvma/test1.txt'; test for bug fixing
 //$checkfile = $_SERVER["DOCUMENT_ROOT"].'/CadenceAppt.txt'; // test file 
 if (!file_exists($checkfile)) { echo 'No data to import. '; exit; }
 $new_records = file($checkfile); 
 
 // add names to ignore to text file, as first;last
-$ignorefile = '/var/www/lung_cancer_site/ptrack/cron/ignore-names.txt';
+$ignorefile = '/var/www/html/lung_cancer_site/ptrack/cron/ignore-names.txt';
 //$ignorefile = 'ignore-names.txt'; // test file
 
 $ignoreNames = array();
@@ -23,9 +23,9 @@ foreach ($tmpIgnoreNames as $ti) {
 }
 
 // Logs 
-$importLogPath = '/var/www/hvma/import_complete/'; // live path 
+$importLogPath = '/var/www/html/hvma/import_complete/'; // live path 
 //$importLogPath = $_SERVER["DOCUMENT_ROOT"].'/hvma/import_complete/'; // test path 
-$resultLogsPath = '/var/www/logs/hd2/'; // LIVE 
+$resultLogsPath = '/var/www/html/logs/hd2/'; // LIVE 
 //$resultLogsPath = $_SERVER["DOCUMENT_ROOT"].'/logs/hd2/'; // test path 
 
 $dbh = mysql_connect('localhost', "lung_cancer_site", "439cwYY39ndB") or die ('Connection failed.'); // live and test 

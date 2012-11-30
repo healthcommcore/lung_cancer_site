@@ -17,7 +17,7 @@
  
 
 // define ( "JPATH_SITE", '../../');
-define ( "JPATH_SITE", '/var/www/help.trackmychanges.org/');
+define ( "JPATH_SITE", '/var/www/html/help.trackmychanges.org/');
 
 require_once( JPATH_SITE .'/includes/hd2/user.php' );
 
