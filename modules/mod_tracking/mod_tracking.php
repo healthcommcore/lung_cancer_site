@@ -452,6 +452,10 @@ function displayHistory() {
 global $userMsqlDB, $user, $rightNow;
 global $currentData;
 global $trackedBehaviors;
+
+if(!$user->weeksSinceStart)
+	$user->weeksSinceStart = ceil( ($_SERVER['REQUEST_TIME'] - $user->startDate) /_HCC_SECONDS_PER_DAY/7 );
+
 		foreach ($trackedBehaviors as $behaviorID) {
 
 		

@@ -381,7 +381,10 @@ global $trackedBehaviors;
 				<td>
 	
 			<?php 
-		
+			/*
+	echo '<p>' . ceil( ($_SERVER['REQUEST_TIME'] - $user->startDate) /_HCC_SECONDS_PER_DAY/7) . '<p>';	
+	echo '<p>' . $user->weeksSinceStart . '<p>';	
+			 */
 			drawChart($behaviorID, $currentData[$behaviorID]->allArray, false, $weekno, $user, $rightNow);
 			?>
  				</td></tr></tbody></table></div>
