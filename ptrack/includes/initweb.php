@@ -49,7 +49,7 @@ function initUserInfo ( $userMsqlDB , $studyID, $joomlaID) {
 //	1 => error msg if any, else ''
 //
 function initUserDataFromStudyID($userMsqlDB, $studyID) {
-		$sql = "SELECT u.studyID, u.rafflepoints, u.planReason, u.planReasonopt, u.planSupport, u.planBehNo, j.email, j.name, unix_timestamp(j.registerDate) as startDate FROM lung_cancer_user.userInfo u INNER JOIN hd2.jos_users j ON u.joomlaID = j.id WHERE studyID=$studyID";
+		$sql = "SELECT u.studyID, u.rafflepoints, u.planReason, u.planReasonopt, u.planSupport, u.planBehNo, j.email, j.name, unix_timestamp(j.registerDate) as startDate FROM lung_cancer_user.userInfo u INNER JOIN lung_cancer_site.jos_users j ON u.joomlaID = j.id WHERE studyID=$studyID";
 		// echo $sql;	
 		$result = mysql_query($sql, $userMsqlDB ) ;
 	

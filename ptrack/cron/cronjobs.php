@@ -867,7 +867,7 @@ $trackedBehaviors[] = 5;
 	
 	// LEFT JOIN with SURVEY DB?
 	$sql="SELECT i.studyID, j.email, j.name,datediff( '$todaydate', j.RegisterDate) as daysstart, s.". SURVEY_ID. "X4X12 as sm1,s." . SURVEY_ID. "X4X13 as sm2, s." . SURVEY_ID. "X4X14 as sm3" . " ,e.webPwd " .
-		" FROM hd2.jos_users j 
+		" FROM lung_cancer_site.jos_users j 
 		INNER JOIN lung_cancer_user.userInfo i ON j.id = i.joomlaID 
 		INNER JOIN lung_cancer_user.enrollment e ON e.partID = i.studyID
 		LEFT OUTER JOIN ". LIMEDB. ".lime_survey_". SURVEY_ID . " s ON s.". SURVEY_ID . "X1X30= i.studyID
@@ -964,12 +964,12 @@ $trackedBehaviors[] = 5;
 	// for extra caution, filter out users over 26 wks, in case cronjob didn't run and deactivate them
 	// Do an union to use userLogin table for last login date 
 	/*
-	$sql = "(SELECT i.studyID, datediff( '$todaydate', j.RegisterDate) as dayslogin ,  j.email, j.name,datediff( '$todaydate', j.RegisterDate) as daysstart, false as lastlogin  FROM hd2.jos_users j INNER JOIN lung_cancer_user.userInfo i ON j.id = 
+	$sql = "(SELECT i.studyID, datediff( '$todaydate', j.RegisterDate) as dayslogin ,  j.email, j.name,datediff( '$todaydate', j.RegisterDate) as daysstart, false as lastlogin  FROM lung_cancer_site.jos_users j INNER JOIN lung_cancer_user.userInfo i ON j.id = 
 	i.joomlaID WHERE (j.block =0 AND (j.RegisterDate >  '$wk26agodate') ) AND (weekday(j.RegisterDate) = $DoW) AND (j.lastVisitDate = '0000-00-00')
 	) 
 	UNION 
 	
-	(SELECT i.studyID, datediff( '$todaydate', convert_tz(j.lastvisitDate,'+00:00','$jConfig->offset:00')) as dayslogin ,  j.email, j.name,datediff( '$todaydate', j.RegisterDate) as daysstart, true as lastlogin  FROM hd2.jos_users j INNER JOIN lung_cancer_user.userInfo i ON j.id = 
+	(SELECT i.studyID, datediff( '$todaydate', convert_tz(j.lastvisitDate,'+00:00','$jConfig->offset:00')) as dayslogin ,  j.email, j.name,datediff( '$todaydate', j.RegisterDate) as daysstart, true as lastlogin  FROM lung_cancer_site.jos_users j INNER JOIN lung_cancer_user.userInfo i ON j.id = 
 	i.joomlaID WHERE (j.block =0 AND (j.RegisterDate >  '$wk26agodate') ) AND (j.lastVisitDate != '0000-00-00') AND 
 	(weekday(convert_tz(j.lastvisitDate,'+00:00','$jConfig->offset:00')) = $DoW)   AND ( convert_tz(j.lastvisitDate,'+00:00','$jConfig->offset:00') >  '$monthagodate' )
 	) 	
@@ -979,12 +979,12 @@ $trackedBehaviors[] = 5;
 	
 	
 	
-	$sql = "(SELECT i.studyID, e.webPwd, datediff( '2010-02-09 00:00:01', j.RegisterDate) as dayslogin ,  j.email, j.name,datediff( '2010-02-09 00:00:01', j.RegisterDate) as daysstart, false as lastlogin  FROM hd2.jos_users j INNER JOIN lung_cancer_user.userInfo i ON j.id = 
+	$sql = "(SELECT i.studyID, e.webPwd, datediff( '2010-02-09 00:00:01', j.RegisterDate) as dayslogin ,  j.email, j.name,datediff( '2010-02-09 00:00:01', j.RegisterDate) as daysstart, false as lastlogin  FROM lung_cancer_site.jos_users j INNER JOIN lung_cancer_user.userInfo i ON j.id = 
 	i.joomlaID INNER JOIN lung_cancer_user.enrollment e ON i.studyID = e.partID WHERE (j.block =0 AND (j.RegisterDate >  '2009-08-11 00:00:01') ) AND (weekday(j.RegisterDate) = 1) AND (j.lastVisitDate = '0000-00-00')
 	) 
 	UNION 
 	
-	(SELECT i.studyID, e.webPwd, datediff( '2010-02-09 00:00:01', convert_tz(j.lastvisitDate,'+00:00','-5:00')) as dayslogin ,  j.email, j.name,datediff( '2010-02-09 00:00:01', j.RegisterDate) as daysstart, true as lastlogin  FROM hd2.jos_users j INNER JOIN lung_cancer_user.userInfo i ON j.id = 
+	(SELECT i.studyID, e.webPwd, datediff( '2010-02-09 00:00:01', convert_tz(j.lastvisitDate,'+00:00','-5:00')) as dayslogin ,  j.email, j.name,datediff( '2010-02-09 00:00:01', j.RegisterDate) as daysstart, true as lastlogin  FROM lung_cancer_site.jos_users j INNER JOIN lung_cancer_user.userInfo i ON j.id = 
 	i.joomlaID INNER JOIN lung_cancer_user.enrollment e ON i.studyID = e.partID WHERE (j.block =0 AND (j.RegisterDate >  '2009-08-11 00:00:01') ) AND (j.lastVisitDate != '0000-00-00') AND 
 	(weekday(convert_tz(j.lastvisitDate,'+00:00','-5:00')) = 1)   AND ( convert_tz(j.lastvisitDate,'+00:00','-5:00') >  '2010-01-12 00:00:01' )
 	) 	

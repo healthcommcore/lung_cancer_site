@@ -95,7 +95,7 @@ global $errflag;
 	
 	echo 'HD2 Database Integrity Check';
 	//	1. PTS enrollment  = Joomla start date (day, not exact time) for web Ix
-	$sql = "SELECT e.startDate, date(e.startDate), e.partID, date(j.registerDate), j.registerDate FROM enrollment e , userInfo u, hd2.jos_users j WHERE e.partID = u.studyID AND u.joomlaID = j.id AND e.`ixModality` = 1 AND date(e.startDate) != date(j.registerDate)";
+	$sql = "SELECT e.startDate, date(e.startDate), e.partID, date(j.registerDate), j.registerDate FROM enrollment e , userInfo u, lung_cancer_site.jos_users j WHERE e.partID = u.studyID AND u.joomlaID = j.id AND e.`ixModality` = 1 AND date(e.startDate) != date(j.registerDate)";
 	// echo $sql;	
 	// info_log ( 'Web Deactivation::');
 	$result = mysql_query($sql, $userMsqlDB ) ;
@@ -137,7 +137,7 @@ global $errflag;
 
 	
 	//	b. All PTS web Ix participants are in Joomla table
-	$sql = "SELECT e.partID FROM enrollment e WHERE NOT EXISTS (SELECT * from userInfo u, hd2.jos_users j WHERE e.partID = u.studyID AND u.joomlaID = j.id) AND e.`ixModality` = 1";
+	$sql = "SELECT e.partID FROM enrollment e WHERE NOT EXISTS (SELECT * from userInfo u, lung_cancer_site.jos_users j WHERE e.partID = u.studyID AND u.joomlaID = j.id) AND e.`ixModality` = 1";
 	// echo $sql;	
 	// info_log ( 'Web Deactivation::');
 	$result = mysql_query($sql, $userMsqlDB ) ;
@@ -168,7 +168,7 @@ global $errflag;
 	// $sql = "SELECT u.studyID, e.startDate, u.activeStatus FROM enrollment e JOIN userInfo
  // u ON e.partID = u.studyID WHERE u.activeStatus = 1 AND (e.startDate) < '$wk27agodate' ";
 	$sql = "SELECT u.studyID, e.startDate, u.activeStatus, j.block FROM enrollment e JOIN userInfo
- u ON e.partID = u.studyID JOIN hd2.jos_users j ON u.joomlaID = j.id WHERE ((u.activeStatus = 1) OR (j.block = 0)) AND (e.startDate) < '$wk27agodate' ";
+ u ON e.partID = u.studyID JOIN lung_cancer_site.jos_users j ON u.joomlaID = j.id WHERE ((u.activeStatus = 1) OR (j.block = 0)) AND (e.startDate) < '$wk27agodate' ";
 	// echo $sql;
 	// info_log ( 'Web Deactivation::');
 	$result = mysql_query($sql, $userMsqlDB ) ;
@@ -190,7 +190,7 @@ global $errflag;
 //	b. Users who are PTS inactive and web Ix should be web inactive in userInfo and Joomla
 $sql = "SELECT u.studyID, e.startDate, u.activeStatus, j.block, p.ptStatus FROM part_info p JOIN enrollment e ON p.partID = e.partID 
  JOIN userInfo
- u ON e.partID = u.studyID JOIN hd2.jos_users j ON u.joomlaID = j.id WHERE ((u.activeStatus = 1) OR (j.block = 0)) AND p.ptStatus = 'i'";
+ u ON e.partID = u.studyID JOIN lung_cancer_site.jos_users j ON u.joomlaID = j.id WHERE ((u.activeStatus = 1) OR (j.block = 0)) AND p.ptStatus = 'i'";
  
 	// echo $sql;
 	// info_log ( 'Web Deactivation::');
@@ -275,7 +275,7 @@ $sql = "SELECT u.studyID, e.startDate, u.activeStatus, j.block, p.ptStatus FROM 
 	else echo "\nDB Error: ".mysql_error( $userMsqlDB);
 	
 //	6. a. All jos_users (registered) are in userInfo table
-	$sql = "SELECT * FROM hd2.jos_users j WHERE NOT EXISTS (SELECT * from lung_cancer_user.userInfo u  WHERE j.id = u.joomlaID  ) and j.gid = 18";
+	$sql = "SELECT * FROM lung_cancer_site.jos_users j WHERE NOT EXISTS (SELECT * from lung_cancer_user.userInfo u  WHERE j.id = u.joomlaID  ) and j.gid = 18";
 	// echo $sql;	
 	// info_log ( 'Web Deactivation::');
 	$result = mysql_query($sql, $userMsqlDB ) ;
@@ -297,7 +297,7 @@ $sql = "SELECT u.studyID, e.startDate, u.activeStatus, j.block, p.ptStatus FROM 
 
 
 //	   b. All userInfo are in  jos_users (registered)  table
-	$sql = "SELECT * FROM `userInfo` u WHERE NOT EXISTS (SELECT * from hd2.jos_users j WHERE j.id = u.joomlaID)";
+	$sql = "SELECT * FROM `userInfo` u WHERE NOT EXISTS (SELECT * from lung_cancer_site.jos_users j WHERE j.id = u.joomlaID)";
 	// echo $sql;	
 	// info_log ( 'Web Deactivation::');
 	$result = mysql_query($sql, $userMsqlDB ) ;
