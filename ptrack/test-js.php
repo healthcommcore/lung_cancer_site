@@ -29,7 +29,7 @@ Here is a value: <input type="text" name="myvalue" value="12345">
 </form>
 
 <? if (isset($_POST['myvalue'])) { ?>
-<p>Yup. The script ran. Here is your value: <?=$_POST['myvalue']?></p>
+<p>Yup. The script ran. Here is your value: <?php echo $_POST['myvalue']?></p>
 <? } ?>
 </body>
 </html>

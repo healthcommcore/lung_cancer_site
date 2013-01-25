@@ -526,15 +526,15 @@ if($_POST["isSubmittedPt"]!=1){
 echo "<tr>\n";
 echo "<td><input type = \"submit\" value = \"Save Record\" onClick=\"submitPt();\" ></td>\n";
 if($heID){ ?>
-</form><td><form action="edit_contact.php" method="GET"><input type="hidden" name="partID" value="<?=(isset($_REQUEST['partID']))?$_REQUEST['partID']:'';?>"><input type="hidden" name="heID" value="<?php echo $heID; ?>"><input type="submit" value="Edit Alternative Contact"<?php if (!$succMsg || $succMsg == "") { ?> onclick="return checkFirst();"<? } ?>></form></td>
-<? } else { ?>
+</form><td><form action="edit_contact.php" method="GET"><input type="hidden" name="partID" value="<?php echo (isset($_REQUEST['partID']))?$_REQUEST['partID']:'';?>"><input type="hidden" name="heID" value="<?php echo $heID; ?>"><input type="submit" value="Edit Alternative Contact"<?php if (!$succMsg || $succMsg == "") { ?> onclick="return checkFirst();"<?php } ?>></form></td>
+<?php } else { ?>
 </form><td><form action="edit_appt.php" method="POST">
-<input type="hidden" name="partID" value="<?=(isset($_REQUEST['partID']))?$_REQUEST['partID']:'';?>">
-<input type="hidden" name="ptFName" value="<?=(isset($_REQUEST['ptFName']))?makeStrUc($_REQUEST['ptFName']):'';?>">
-<input type="hidden" name="ptLName" value="<?=(isset($_REQUEST['ptLName']))?makeStrUc($_REQUEST['ptLName']):'';?>">
-<input type = "submit" name="action" value="Edit Appointment"<?php if (!$succMsg || $succMsg == "") { ?> onclick="return checkFirst();"<? } ?>>
+<input type="hidden" name="partID" value="<?php echo (isset($_REQUEST['partID']))?$_REQUEST['partID']:'';?>">
+<input type="hidden" name="ptFName" value="<?php echo (isset($_REQUEST['ptFName']))?makeStrUc($_REQUEST['ptFName']):'';?>">
+<input type="hidden" name="ptLName" value="<?php echo (isset($_REQUEST['ptLName']))?makeStrUc($_REQUEST['ptLName']):'';?>">
+<input type = "submit" name="action" value="Edit Appointment"<?php if (!$succMsg || $succMsg == "") { ?> onclick="return checkFirst();"<?php } ?>>
 </td>
-<? }
+<?php }
 echo "</tr>\n";
 ?>
 </table>
@@ -555,4 +555,4 @@ dbClose(); ?>
    </div>
    <!-- End Wrapper -->
 </body>
-</html>
+	</html>
