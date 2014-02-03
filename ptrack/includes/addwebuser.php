@@ -43,27 +43,27 @@ require_once( 'initweb.php' );
 
 // Email constant definitions
 global $FromEmail;
-$FromEmail = 'dave_rothfarb@dfci.harvard.edu';
+$FromEmail = 'manan_nayak@dfci.harvard.edu';
 global $WelcomeMsgSubject;
 global $WelcomeMsgBody;
 
 $WelcomeMsgSubject = 'Getting the most out of Healthy Directions!';
 $WelcomeMsgBody = array(
 1 => "Hello %s,
-<p>Welcome to Healthy Directions! The Healthy Directions web site is: <a href=\"http://help.TrackMyChanges.org?source=MassEmailSource&studyID=%s\">Help.TrackMyChanges.org</a>. <br /><br />
+<p>Welcome to Healthy Directions! The Healthy Directions web site is: <a href=\"http://lung.trackmychanges.org?source=MassEmailSource&studyID=%s\">Lung.TrackMyChanges.org</a>. <br /><br />
    <b>Your user name is</b>: %s <br />
    <b>Your password is</b>: %s
 </p> 
 <p>
-This program is for Harvard Vanguard Medical Associates patients who want to make healthy changes.
+This program is for Brigham and Women’s and Dana Farber Cancer Institute patients who want to make healthy changes.
 <br><br>
 Because research shows that tracking (or recording) your health habits is so important, we encourage you to make tracking a daily habit.  You can keep up with your healthy habits on the Healthy Directions website.  The more you track, the more you'll see your progress!
 <br><br>
 As part of this study, we'll send some people an email every day for the next 2 weeks to help with tracking.  If you get these emails, all <i>you</i> have to do is hit reply and let us know how your day went.  That is, let us know how many steps you took, how many fruits and vegetables and how much red meat you ate, if you took a multivitamin, and, if you smoke, how many cigarettes you smoked that day. If you miss a day or two  that's okay.  But, the more information you give us, the more feedback <i>we</i> can give <i>you</i>!  At the end of each week, we'll email you an update to let you know how you're doing.
 <br><br>
-The Healthy Directions web site also has lots of great ideas to help you meet your health goals.  You can even make a personalized plan to help you get there!  Check out the great recipes, the weekly blog from one of our health coaches, lists of local resources, and tips for getting family and friends on board to help you.   
+The Healthy Directions web site also has lots of great ideas to help you meet your health goals.  You can even make a personalized plan to help you get there!  Check out the great recipes, the weekly blog from one of our health coaches, lists of local resources, and tips for getting family and friends on board to help you. 
 <br><br>
-Good luck and thanks for your participation!  If you'd like to contact us, please call 617-582-7295.
+Good luck and thanks for your participation!  If you'd like to contact us, please call 617-632-3510.
 <br><br>
 The Healthy Directions team<br><br>
 P.S.: We don't want to become spam! Please add our email address to your system, so your Healthy Directions emails won't be blocked.
@@ -71,12 +71,12 @@ P.S.: We don't want to become spam! Please add our email address to your system,
 <i>This electronic message and attached files may contain information that is confidential.  This information is solely for the use of the individual(s) and entity(s) named as recipients.  If you are not the intended recipient, you are hereby notified that any disclosure, copying, distribution, or other use of the contents of this electronic message is strictly prohibited.  If you have received this electronic message in error, please notify the sender immediately to arrange for return of the document.</i>",
 2 => 
 "Hello %s,
-<p>Welcome to Healthy Directions! The Healthy Directions web site is: <a href=\"http://help.TrackMyChanges.org?source=MassEmailSource&studyID=%s\">Help.TrackMyChanges.org</a>. <br /><br />
+<p>Welcome to Healthy Directions! The Healthy Directions web site is: <a href=\"http://lung.trackmychanges.org?source=MassEmailSource&studyID=%s\">Lung.TrackMyChanges.org</a>. <br /><br />
    <b>Your user name is</b>: %s <br />
    <b>Your password is</b>: %s
 </p> 
 <p>
-This program is for Harvard Vanguard Medical Associates patients who want to make healthy changes.
+This program is for Brigham and Women’s and Dana Farber Cancer Institute patients who want to make healthy changes.
 <br><br>
 Because research shows that tracking (or recording) your health habits is so important, we encourage you to make tracking a daily habit.  You can keep up with your healthy habits on the Healthy Directions website.  The more you track, the more you'll see your progress! 
 <br><br>
@@ -210,7 +210,7 @@ function registerUser( $db, $fname, $username, $email, $password) {
 		if (!$resultID) {
 			// db inconsistency -
 			$msg = 'Database Internal consistency error inserting core_acl_ro: ' . mysql_error($db);
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 			return array( 0=> 0, 1=> $msg);
 		}
 		else {
@@ -222,7 +222,7 @@ function registerUser( $db, $fname, $username, $email, $password) {
 			$resultID=mysql_query($sql,$db);
 			if (!$resultID) {
 				$msg = 'Database Internal consistency error inserting core_acl_aro_map: ' . mysql_error($db);
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 				return array( 0=> 0, 1=> $msg);
 			}
 	
@@ -251,7 +251,7 @@ function updateUser( $userMsqlDB, $joomlaID, $fname, $username, $email, $passwor
 	$resultID=mysql_query($sql,$userMsqlDB);
 	if (!$resultID) {
 			$msg = "Database error updating user information: " . mysql_error($userMsqlDB);
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 			return array( 0=> 0, 1=> $msg);
 	}
 	
@@ -315,7 +315,7 @@ global $FromEmail;
 		if (!$resultID) {
 			// db error
 			$msg = 'Database select error: ' . mysql_error($userMsqlDB);
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 			mysql_close($userMsqlDB);
 			return array( 0=> 0, 1=> $msg);
 		}
@@ -332,7 +332,7 @@ global $FromEmail;
 				$msg = 'User registration warning: the username or email already exists for ' . $email . ' - change to update mode';
 				notifyErrorAdmin($msg);
 
-				error_log( "\n". date("Y-m-d H:i:s ") .  $msg , 3, '/var/www/html/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") .  $msg , 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 				
 				// Go into update mode to recover from error 
 				$createflag = false;
@@ -364,7 +364,7 @@ global $FromEmail;
 		$joomlaID = checkUserInfo( $userMsqlDB, $studyID);
 		if ($joomlaID == 0 ) {
 				$msg = "Database Internal consistency error, this user does not exist in userInfo for studyID $studyID";
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 				mysql_close($userMsqlDB);
 				return array( 0=> 0, 1=> $msg);
 		}
@@ -373,7 +373,7 @@ global $FromEmail;
 		$statusArray = updateUser($userMsqlDB,  $joomlaID, $fname, $email, $email, $password, $status );
 		if (! $statusArray[0] ) {
 			$msg =  'Error updating Joomla user information: '.$statusArray[1] ;
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 			mysql_close($userMsqlDB);
 			return array( 0=> 0, 1=> $msg);
 		
@@ -397,7 +397,7 @@ global $FromEmail;
 		else {
 			// Error registering new user
 			$msg = 'Web site user registration error (please contact HCC) : '.$statusArray[1] ;
-			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+			error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 			mysql_close($userMsqlDB);
 			return array( 0=> 0, 1=> $msg);
 		}
@@ -417,7 +417,7 @@ global $FromEmail;
 		if (mysql_num_rows($result)> 1) {
 			// Internal consistency error
 				$msg = "Database Internal consistency error, too many userInfo entries for joomlaID $joomlaID or studyID $studyID";
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 				mysql_close($userMsqlDB);
 				return array( 0=> 0, 1=> $msg);
 		}
@@ -434,7 +434,7 @@ global $FromEmail;
 				notifyErrorAdmin($msg);
 
 
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 				$msg = 'User registration warning: please SAVE the record again';
 				return array( 0=> 0, 1=> $msg);
 			}
@@ -443,7 +443,7 @@ global $FromEmail;
 	}
 	else {
 		$msg = 'Database select error: ' . mysql_error($userMsqlDB);
-		error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+		error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 		$statusArray[0] = 0;
 		return array( 0=> 0, 1=> $msg);
 	}
@@ -465,7 +465,7 @@ global $FromEmail;
 			}
 			else {
 				$msg = 'Database select error: ' . mysql_error($userMsqlDB);
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 				$statusArray[0] = 0;
 				return array( 0=> 0, 1=> $msg);
 			}
@@ -484,7 +484,7 @@ global $FromEmail;
 
 				if ( $status != 1) {
 					$msg = 'Error: Unable to send welcome email to: ' . $email;
-					error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+					error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 					$statusArray[0] = 2;
 				}
 				else {
@@ -494,7 +494,7 @@ global $FromEmail;
 			else if ($statusArray[0] == 0 ) {
 				// Error initializing userInfo
 				$msg = 'Database error initializing user information : '.$statusArray[1] ;
-				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+				error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 				$statusArray[0] = 0;
 			}
 	}
@@ -519,7 +519,7 @@ global $FromEmail;
 				else {
 					// error_reporting($old_level);
 					$msg = "Database error updating user information userInfo: " . mysql_error($userMsqlDB);
-					error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/logs/hd2/hd2.log');
+					error_log( "\n". date("Y-m-d H:i:s ") . $msg, 3, '/var/www/html/lung_cancer_site/logs/lung_intervention.log');
 					mysql_close($userMsqlDB);
 					return array( 0=> 0, 1=> $msg);
 				}
