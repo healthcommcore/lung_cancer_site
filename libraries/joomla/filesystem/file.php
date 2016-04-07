@@ -1,6 +1,6 @@
 <?php
 /**
- * @version		$Id: file.php 12541 2009-07-22 17:36:38Z ian $
+ * @version		$Id: file.php 19177 2010-10-21 03:08:56Z ian $
  * @package		Joomla.Framework
  * @subpackage	FileSystem
  * @copyright	Copyright (C) 2005 - 2008 Open Source Matters. All rights reserved.
@@ -35,8 +35,14 @@ class JFile
 	 * @since 1.5
 	 */
 	function getExt($file) {
-		$dot = strrpos($file, '.') + 1;
-		return substr($file, $dot);
+		$chunks = explode('.', $file);
+		$chunksCount = count($chunks) - 1;
+
+		if($chunksCount > 0) {
+			return $chunks[$chunksCount];
+		}
+		
+		return false;
 	}
 
 	/**
@@ -58,6 +64,8 @@ class JFile
 	 * @since 1.5
 	 */
 	function makeSafe($file) {
+		// Remove any trailing dots, as those aren't ever valid file names.
+		$file = rtrim($file, '.');
 		$regex = array('#(\.){2,}#', '#[^A-Za-z0-9\.\_\- ]#', '#^\.#');
 		return preg_replace($regex, '', $file);
 	}

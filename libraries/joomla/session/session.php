@@ -1,9 +1,9 @@
 <?php
 /**
-* @version		$Id: session.php 12694 2009-09-11 21:03:02Z ian $
+* @version		$Id: session.php 19338 2010-11-03 14:51:55Z ian $
 * @package		Joomla.Framework
 * @subpackage	Session
-* @copyright	Copyright (C) 2005 - 2008 Open Source Matters. All rights reserved.
+* @copyright	Copyright (C) 2005 - 2010 Open Source Matters. All rights reserved.
 * @license		GNU/GPL, see LICENSE.php
 * Joomla! is free software. This version may have been modified pursuant
 * to the GNU General Public License, and as distributed it includes or
@@ -507,34 +507,7 @@ class JSession extends JObject
 			// @TODO :: generated error here
 			return false;
 		}
-
-		// save values
-		$values	= $_SESSION;
-
-		// keep session config
-		$trans	=	ini_get( 'session.use_trans_sid' );
-		if( $trans ) {
-			ini_set( 'session.use_trans_sid', 0 );
-		}
-		$cookie	=	session_get_cookie_params();
-
-		// create new session id
-		$id	=	$this->_createId( strlen( $this->getId() ) );
-
-		// kill session
-		session_destroy();
-
-		// re-register the session store after a session has been destroyed, to avoid PHP bug
-		$this->_store->register();
-
-		// restore config
-		ini_set( 'session.use_trans_sid', $trans );
-		session_set_cookie_params( $cookie['lifetime'], $cookie['path'], $cookie['domain'], $cookie['secure'] );
-
-		// restart session with new id
-		session_id( $id );
-		session_start();
-
+		session_regenerate_id();
 		return true;
 	}
 
@@ -724,39 +697,27 @@ class JSession extends JObject
 			}
 		}
 
-		// record proxy forwarded for in the session in case we need it later
-		if( isset( $_SERVER['HTTP_X_FORWARDED_FOR'] ) ) {
-			$this->set( 'session.client.forwarded', $_SERVER['HTTP_X_FORWARDED_FOR']);
-		}
-
-		// check for client adress
-		if( in_array( 'fix_adress', $this->_security ) && isset( $_SERVER['REMOTE_ADDR'] ) )
+		// Check for client address
+		if(in_array('fix_adress', $this->_security) && isset($_SERVER['REMOTE_ADDR']) && filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP) !== false)
 		{
-			$ip	= $this->get( 'session.client.address' );
+			$ip = $this->get('session.client.address');
 
-			if( $ip === null ) {
-				$this->set( 'session.client.address', $_SERVER['REMOTE_ADDR'] );
-			}
-			else if( $_SERVER['REMOTE_ADDR'] !== $ip )
+			if($ip === null)
 			{
-				$this->_state	=	'error';
+				$this->set('session.client.address', $_SERVER['REMOTE_ADDR']);
+			}
+			elseif($_SERVER['REMOTE_ADDR'] !== $ip)
+			{
+				$this->_state = 'error';
+
 				return false;
 			}
 		}
 
-		// check for clients browser
-		if( in_array( 'fix_browser', $this->_security ) && isset( $_SERVER['HTTP_USER_AGENT'] ) )
+		// Record proxy forwarded for in the session in case we need it later
+		if(isset($_SERVER['HTTP_X_FORWARDED_FOR']) && filter_var($_SERVER['HTTP_X_FORWARDED_FOR'], FILTER_VALIDATE_IP) !== false)
 		{
-			$browser = $this->get( 'session.client.browser' );
-
-			if( $browser === null ) {
-				$this->set( 'session.client.browser', $_SERVER['HTTP_USER_AGENT']);
-			}
-			else if( $_SERVER['HTTP_USER_AGENT'] !== $browser )
-			{
-//				$this->_state	=	'error';
-//				return false;
-			}
+			$this->set('session.client.forwarded', $_SERVER['HTTP_X_FORWARDED_FOR']);
 		}
 
 		return true;
