@@ -35,7 +35,7 @@ class JConfig {
 	var $user = 'lung_cancer_site';
 	var $db = 'lung_cancer_site';
 	var $dbprefix = 'jos_';
-	var $mailer = 'mail';
+	var $mailer = 'smtp';
 	var $mailfrom = 'helptrackmychanges@partners.org';
 	var $fromname = 'Track My Changes';
 	var $sendmail = '/usr/sbin/sendmail';
