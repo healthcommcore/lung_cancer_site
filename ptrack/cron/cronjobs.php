@@ -12,7 +12,7 @@
  
 
 // define ( "JPATH_SITE", '../../');
-define ( "JPATH_SITE", '/var/www/html/lung_cancer_site');
+define ( "JPATH_SITE", '/var/www/new/html/lung_cancer_site');
 
 require_once( JPATH_SITE .'/includes/hd2/user.php' );
 
@@ -39,7 +39,7 @@ $RAemailSmokerTLR = '
 $fromEmail = 'dave_rothfarb@dfci.harvard.edu';
 
 
-$CRfilepath = "/var/www/html/logs/hd2/";
+$CRfilepath = "/var/www/new/html/logs/hd2/";
 
 // Participant Email reminders 
 global $emailReminders;

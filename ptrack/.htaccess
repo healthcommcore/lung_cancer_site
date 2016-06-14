@@ -1,5 +1,5 @@
 AuthName "admin"
 AuthType Basic
-AuthUserFile /var/www/html/lung_cancer_site/ptrack/adminusers
+AuthUserFile /var/www/new/html/lung_cancer_site/ptrack/adminusers
 require valid-user
 php_value  max_execution_time 30
